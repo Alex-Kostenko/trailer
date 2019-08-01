@@ -2,8 +2,13 @@ extends partials/layout
 
 block vars
 	- var title = "Trailer"
+	- var navigation = "login"
+
+
 
 block content
+  include partials/sidebar
+  
 	.container
 		h1 index.pug
 		.demo-block
