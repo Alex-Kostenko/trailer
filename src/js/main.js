@@ -1,4 +1,1 @@
-import { browser } from './browser';
-import { dialog } from './dialog';
-
-browser();
+require('bootstrap/js/index.js')

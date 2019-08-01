@@ -1,5 +1,11 @@
 //- .preloader
 	//- .after
-ul.list-inline
-	li(class= navigation == 'index' ? 'active' : '')
-		a(href="index.html") index
+
+div(class="pos-f-t")
+	div(class="collapse" id="navbarToggleExternalContent")
+		h5 Collapsed content
+	nav(class="nav")
+		button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation")
+			span(class="navbar-toggler-icon")
+		a(class="navbar-brand mb-0 h1" href='/') Trailer
+
