@@ -8,7 +8,7 @@ const prodConfig = {
   mode: 'production',
 
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, './../dist'),
     filename: '[name].bundle.js'
   },
 
@@ -44,13 +44,7 @@ const prodConfig = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new OptimizeCssAssetsPlugin(),
-    new HtmlWebpackPlugin({
-      favicon: 'favicon.ico',
-      template: './index.pug',
-      filename: 'index.html',
-      inject: true
-    })
+    new OptimizeCssAssetsPlugin()
   ]
 };
 
