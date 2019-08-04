@@ -3,17 +3,17 @@ $nav_link_color: #617083
 $nav_background_color: #EBECEF
 
 .sidebar
-  width: 355px
+  width: 300px
   min-height: 90vh
   background-color: $nav_background_color
   padding-top: 100px
 
   li
     display: flex
-    justify-content: space-between
+    justify-content: flex-start
     width: 250px
     margin: 10px 0
-    margin-left: 5px;
+    margin-left: 25px
 
     a.nav-link
       color: $nav_link_color
@@ -23,7 +23,6 @@ $nav_background_color: #EBECEF
 
 
   li.active
-    border-left: 3px solid $nav_active_link_color
 
     a.nav-link
       color: $nav_active_link_color
