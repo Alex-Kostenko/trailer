@@ -6,4 +6,4 @@ import "./index.pug";
 import "./login.pug";
 import "./support.pug";
 import "./create_account.pug";
-import "./account_information.pug";
+import "./account_info.pug";

@@ -1,0 +1,22 @@
+extends partials/layout
+
+block vars
+	- var title = "Account Information"
+	- var sidebar_nav = "account_information"
+
+block content
+	.info.row
+		.col
+			h1.main-header Account Information
+			h3.sub-header Account Email / Username and Password
+			form.account-info-form.info__form(method='POST' action='/register')
+				+formGroupInputWithButton('email', 'email', 'Email Adress', 'Save Email')
+				h3.sub-header Personal Information
+				+formGroupInput('text', 'f-name', 'First name')
+				+formGroupInput('text', 'l-name', 'Last Name')
+				+formGroupSelect('organization', 'Organization', ['Organization1', 'Organization2', 'Organization3'])
+				+formGroupSelectWithButton('location', 'Location', ['Location1', 'Location2', 'Location3'], 'Update Personal Information')
+				h3.sub-header Password Update
+				+formGroupInput('password', 'password', 'New Password')
+				+formGroupInputWithButton('password', 'confirm-password', 'Confirm password', 'Update Password')
+
