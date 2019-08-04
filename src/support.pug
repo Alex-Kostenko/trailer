@@ -5,5 +5,22 @@ block vars
 	- var sidebar_nav = "support"
 
 block content
-	.container
-		h1 Support page
+	.support.row
+		.col
+			h1 Account Support
+			form(method='POST' action='/register')
+				.form-row
+					.col-md-2
+					div.form-group.col-md-8.d-flex
+						label.text-nowrap.col-md-4(for='email') Email Adress
+						input#email.form-control.col-md-6(type='email', name='email')
+				.form-row
+					.col-md-2
+					div.form-group.col-md-8.d-flex
+						.col-md-4
+						p.col-md-6 Type in the email address you used when you created your account to receive assistance in recovering your password
+				.form-row
+					.col-md-2
+					div.form-group.col-md-8.d-flex
+						.col-md-4
+						a.btn.btn-primary.mt-3.ml-3.support__btn-submit Submit
