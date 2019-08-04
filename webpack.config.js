@@ -75,15 +75,6 @@ const commonConfig = {
         ]
       },
 
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: 'babel-loader',
-      //   options: {
-      //       presets: ['babel-preset-env']
-      //   }
-      // },
-
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
