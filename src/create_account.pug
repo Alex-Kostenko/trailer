@@ -3,71 +3,32 @@ extends partials/layout
 block vars
 	- var title = "Create Account"
 	- var sidebar_nav = "create_account"
+	- var optionsOrganization = ['Organization1', 'Organization2', 'Organization3']
+	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 
 block content
 	.create.row
 		.col
-			h1 Welcome!
+			h1.main-header Welcome!
 
-			h3 Account Email / Username and Password
+			h3.sub-header Account Email / Username and Password
 
 			form(method='POST' action='/register')
+				+formGroup('input', 'email', 'email', 'Email Adress')
 				.form-row
 					.col-md-1
-					div.form-group.col-md-10.d-flex
-						label.text-nowrap.col-md-4(for='email') Email Adress
-						input#email.form-control.col-md-6(type='email', name='email')
+					.col-md-10.d-flex
+						.col-md-4
+						p.create_text Your email address is your username
+				+formGroup('input', 'password', 'password', 'New Password')
+				+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
+				h3.sub-header Personal Information
+				+formGroup('input', 'text', 'f-name', 'First name')
+				+formGroup('input', 'text', 'l-name', 'Last name')
+				+formGroup('select', 'text', 'organization', 'Organization', optionsOrganization)
+				+formGroup('select', 'location', 'location', 'Location', optionsLocation)
 				.form-row
-					.col-md-1
-					.col-md-10
-						.row
-							.col-md-4
-							p.create_text Your email address is your username
-				.form-row
-					.col-md-1
-					div.form-group.d-flex.col-md-10
-						label.text-nowrap.col-md-4(for='pw') New Password
-						input#pw.form-control.col-md-6(type='password', name='password')
-				.form-row
-					.col-md-1
-					div.form-group.d-flex.col-md-10
-						label.text-nowrap.col-md-4(for='pw-confirm') Confirm password
-						input#pw-confirm.form-control.col-md-6(type='password', name='password-confirm')
-				.form-row
-				h3 Personal Information
-				.form-row
-					.col-md-1
-					div.form-group.col-md-10.d-flex
-						label.text-nowrap.col-md-4(for='f-name') First name
-						input#f-name.form-control.col-md-6(type='f-name', name='f-name')
-				.form-row
-					.col-md-1
-					div.form-group.d-flex.col-md-10
-						label.text-nowrap.col-md-4(for='l-name') Last Name
-						input#l-name.form-control.col-md-6(type='l-name', name='l-name')
-				.form-row
-					.col-md-1
-					div.form-group.d-flex.col-md-10
-						label.text-nowrap.col-md-4(for='organization') Organization
-						.col-md-6
-							select#organization.form-control.select(type='organization', name='organization')
-								option.selected(value='1') ComboBox
-								option(value='2') ComboBox1
-								option(value='3') ComboBox2
-				.form-row
-					.col-md-1
-					div.form-group.d-flex.col-md-10
-						label.text-nowrap.col-md-4(for='location') Location
-						.col-md-6
-							select#location.form-control.select(type='location', name='location')
-								option.selected(value='1') Lane
-								option(value='2') Lane1
-								option(value='3') Lane2
-				.form-row
-					.col-md-1
-					.col-md-10
-						.row
-							.col-md-4
-							.col-md-6
-								a.btn.btn-primary.create_btn-create Create Account
+					.col-md-10.d-flex
+						.col-md-5
+						button.btn.btn-primary.col-md-4 Create Account
 

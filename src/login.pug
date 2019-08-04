@@ -7,45 +7,21 @@ block vars
 block content
 	.login.row
 		.col
-			h1 Welcome!
+			h1.main-header Welcome!
 
 			form(method='POST' action='/register')
-				.form-row
-					.col-md-1
-					div.form-group.col-md-10.d-flex
-						label.text-nowrap.col-md-4(for='name') Username
-						input#name.form-control.col-md-6(type='text', name='name')
-				.form-row
-					.col-md-1
-					div.form-group.col-md-10.d-flex
-						label.text-nowrap.col-md-4(for='pw') Password
-						input#pw.form-control.col-md-6(type='password', name='password')
-				.form-row
-					.col-md-1
-					.col-md-10
-						.row
-							.col-md-4
-							.col-md-6
-								a.login_fogot-link.mt-4(href='/') Forgot your password?
-				.form-row
-					.col-md-1
-					.col-md-10
-						.row
-							.col-md-4
-							.col-md-6
-								button.btn.btn-primary.mt-4(type='submit') Log In
-				.form-row
-					.col-md-1
-					.col-md-10
-						.row
-							.col-md-4
-							.col-md-6
-								p.login_text.mt-4 Or if you are new, please
-				.form-row
-					.col-md-1
-					.col-md-10
-						.row
-							.col-md-4
-							.col-md-6
-								a.btn.btn-primary.login__btn-create.text-nowrap Create a New Account
+				+formGroup('input', 'text', 'name', 'Username')
+				+formGroup('input', 'password', 'password', 'Password')
+				+formRow()
+					.col-md-5
+					a.login_fogot-link.col-md-6(href='/') Forgot your password?
+				+formRow()
+					.col-md-5
+					button.btn.btn-primary.col-md-4(type='submit') Log In
+				+formRow()
+					.col-md-5
+					p.login_text.col-md-6 Or if you are new, please
+				+formRow()
+					.col-md-5
+					button.btn.btn-primary.col-md-5 Create a New Account
 

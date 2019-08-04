@@ -1,4 +1,24 @@
 
+mixin formRow ()
+	.form-row
+		.form-group.col-md-10.d-flex.form-block
+			if block
+				block
+
+mixin formGroup (type, typeName, name, label, options)
+	+formRow()
+		case type
+			when 'select'
+				label.text-nowrap.col-md-5.form-block__label(for=name)= label
+				+selectOption(name, options)
+				if block
+					block
+			default
+				label.text-nowrap.col-md-5.form-block__label(for=name)= label
+				input.form-control.col-md-5.form-block__input(type=typeName, name=name, id=name)
+				if block
+					block
+
 mixin formGroupInputWithButton (type, name, label, btnText)
 	.form-row
 		.col-md-1
@@ -30,6 +50,6 @@ mixin formGroupInput (type, name, label)
 			input#email.form-control.col-md-5.account-info-input(type=type, name=name)
 
 mixin selectOption (name, options)
-	select#location.form-control.account-info-input.col-md-5(name=name)
+	select#location.form-control.form-block__input.col-md-5(name=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
