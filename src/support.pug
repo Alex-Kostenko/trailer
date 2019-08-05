@@ -7,21 +7,12 @@ block vars
 block content
 	.support.row
 		.col
-			h1 Account Support
+			h1.main-header Account Support
 			form(method='POST' action='/register')
-				.form-row
-					.col-md-1
-					div.form-group.col-md-10.d-flex
-						label.text-nowrap.col-md-4(for='email') Email Adress
-						input#email.form-control.col-md-6(type='email', name='email')
-				.form-row
-					.col-md-1
-					div.form-group.col-md-10.d-flex
-						.col-md-4
-						p.col-md-6.support__text Type in the email address you used when you created your account to receive assistance in recovering your password
-				.form-row
-					.col-md-1
-					div.form-group.col-md-10.d-flex
-						.col-md-4
-						.col-md-6
-							a.btn.btn-primary.support__btn-submit Submit
+				+formGroup('input', 'email', 'email', 'Email Adress')
+				+formRow()
+					.col-md-3
+					p.col-md-8 Type in the email address you used when you created your account to receive assistance in recovering your password
+				+formRow()
+					.col-md-4
+					button.btn.btn-primary.col-md-4 Submit
