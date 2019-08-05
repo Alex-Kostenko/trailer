@@ -11,11 +11,15 @@ block content
 			form(method='POST' action='/register')
 				+formGroup('input', 'text', 'name', 'Username')
 				+formGroup('input', 'password', 'password', 'Password')
-				+formRowWithText()
-					a.col-11.col-md-8.p-0(href='/support.html') Forgot your password?
+				.form-group.row.form-block.justify-content-left
+					.col-11.col-md-3
+					a.col-11.col-md-3.p-0(href='/support.html') Forgot your password?
+					.col-sm-3
 				+formRowWithText()
 					button.btn.main-btn.col-11.col-md-4(type='submit') Log In
-				+formRowWithText()
-					p.login_text.col-11.col-md-8.mt-2.p-0 Or if you are new, please
+				.form-group.row.form-block.justify-content-left
+					.col-11.col-md-3
+					p.login_text.col-11.col-md-3.col-md-push-4.mt-2.p-0 Or if you are new, please
+					.col-sm-3
 				+formRowWithText()
 					button.btn.main-btn.col-11.col-md-4 Createa New Account
