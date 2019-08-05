@@ -15,10 +15,11 @@ const prodConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(scss|sass)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'sass-loader',
         ],
       },
     ],
@@ -42,7 +43,7 @@ const prodConfig = {
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'css/[name].css',
     }),
     new OptimizeCssAssetsPlugin()
   ]

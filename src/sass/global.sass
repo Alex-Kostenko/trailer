@@ -5,6 +5,7 @@ $color: #2AA7FF;
 	color: $text_color
 	font-family: 'Roboto', sans-serif
 	font-size: 18px
+	font-weight: 400
 
 
 ::selection 
@@ -57,6 +58,9 @@ $color: #2AA7FF;
 
 
 @include media-breakpoint-up(md)
+	.form-block__label
+		text-align: right
+
 	.form-block__btn
 		margin-left: 0.5rem
 
