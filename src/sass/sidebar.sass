@@ -3,30 +3,32 @@ $nav_link_color: #617083
 $nav_background_color: #EBECEF
 
 .sidebar
-  // width: 300px
-  // min-height: 90vh
+  min-width: 225px
+  min-height: fit-content
   background-color: $nav_background_color
-  padding-top: 100px
-  // height: 100%
-  ul
-    height: 100%
-    li
-      justify-content: flex-start
-      // width: 250px
-      margin: 10px 0
-      margin-left: 25px
+  padding-top: 10px
+  height: 100%
+ul
+  height: 100%
 
-      a.nav-link
-        color: $nav_link_color
-        font-weight: normal
-        line-height: 21px
-        padding-left: 30px
+  li
+    justify-content: flex-start
+    margin: 10px 0
+    margin-left: 25px
 
+    a.nav-link
+      color: $nav_link_color
+      font-weight: normal
+      line-height: 21px
+      padding-left: 30px
 
-    li.active
+  li.active
 
-      a.nav-link
-        color: $nav_active_link_color
-        font-weight: bold
+    a.nav-link
+      color: $nav_active_link_color
+      font-weight: bold
 
-      
+@include media-breakpoint-up(md)
+  .sidebar
+    min-height: 90vh
+    padding-top: 100px

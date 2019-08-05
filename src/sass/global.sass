@@ -1,9 +1,20 @@
-$color: #617083;
+$text_color: #617083;
+$color: #2AA7FF;
 
 *
-	color: $color
+	color: $text_color
 	font-family: 'Roboto', sans-serif
 	font-size: 18px
+
+
+::selection 
+	background: $color
+	color: #fff
+
+.main-btn
+	color: #fff
+  background-color: $color
+  border-color: $color
 
 .main-header	
 	font-size: 2rem
@@ -20,20 +31,35 @@ $color: #617083;
 	margin-left: 0.8333rem
 
 .form-block
+	justify-content: center
 	align-items: baseline
 
 	.form-block__label
 		line-height: 21px
 		font-weight: bold
 		text-transform: uppercase
-		color: $color
-		text-align: right
+		color: $text_color
+		text-align: center
 
 	.form-block__input
 		border-radius: 13px
+		padding-bottom: 11px
 
-.form-block__btn
-	margin-left: 0.5rem
+	.main-btn
+		color: #fff
+		background: $color
+		border-color: $color
+
+	.main-btn:hover
+		color: #fff
+		background: #007bff
+		border-color: #007bff
+
+
+@include media-breakpoint-up(md)
+	.form-block__btn
+		margin-left: 0.5rem
+
 
 
 

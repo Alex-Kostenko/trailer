@@ -7,3 +7,4 @@ import "./login.pug";
 import "./support.pug";
 import "./create_account.pug";
 import "./account_info.pug";
+import "./support_confirm.pug";
