@@ -1,0 +1,17 @@
+extends partials/layout
+
+block vars
+	- var title = "Trailer - Home"
+	- var sidebar_nav = "home"
+
+block content
+	.login.row.m-0
+		.col
+			h1.main-header Reporting Locations
+			.row
+				.col-11.col-md-4.ml-4
+					+formRow()
+						+selectOption('bussines', ['bussines1', 'bussines2', 'bussines3'])
+					+formRow()
+						+selectOption('location', ['location1', 'location2', 'location3'])
+				.col-11.col-md-8

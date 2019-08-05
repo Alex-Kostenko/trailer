@@ -7,6 +7,10 @@ $color: #2AA7FF;
 	font-size: 18px
 	font-weight: 400
 
+	body
+		a
+			color: $color
+
 
 ::selection 
 	background: $color
@@ -34,6 +38,7 @@ $color: #2AA7FF;
 .form-block
 	justify-content: center
 	align-items: baseline
+	max-width: 800px
 
 	.form-block__label
 		line-height: 21px
@@ -56,13 +61,17 @@ $color: #2AA7FF;
 		background: #007bff
 		border-color: #007bff
 
+.form-block__input
+	border-radius: 13px
+	padding-bottom: 11px
 
 @include media-breakpoint-up(md)
-	.form-block__label
-		text-align: right
+	.form-block
+		.form-block__label
+			text-align: right
 
-	.form-block__btn
-		margin-left: 0.5rem
+		.form-block__btn
+			margin-left: 0.5rem
 
 
 
