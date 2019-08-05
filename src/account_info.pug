@@ -3,6 +3,7 @@ extends partials/layout
 block vars
 	- var title = "Account Information"
 	- var sidebar_nav = "account_information"
+	- var navigation = "account_information"
 	- var optionsOrganization = ['Organization1', 'Organization2', 'Organization3']
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 
@@ -13,14 +14,14 @@ block content
 			h3.sub-header Account Email / Username and Password
 			form.info__form(method='POST' action='/register')
 				+formGroup('input', 'email', 'email', 'Email Adress')
-					button.btn.btn-primary.col-11.col-sm-6.col-md-4.form-block__btn Save Email
+					button.btn.btn-primary.col-11.col-sm-6.col-md-3.form-block__btn Save Email
 				h3.sub-header Personal Information
 				+formGroup('input', 'text', 'f-name', 'First name')
 				+formGroup('input', 'text', 'l-name', 'Last Name')
 				+formGroup('select', 'organization', 'organization', 'Organization', optionsOrganization)
 				+formGroup('select', 'location', 'location', 'Location', optionsLocation)
-					button.btn.btn-primary.col-11.col-sm-6.col-md-4.form-block__btn.text-nowrap Update Personal Information
+					button.btn.btn-primary.col-11.col-sm-6.col-md-3.form-block__btn.text-nowrap Update Personal Information
 				h3.sub-header Password Update
 				+formGroup('input', 'password', 'password', 'New Password')
 				+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
-					button.btn.btn-primary.col-11.col-sm-6.col-md-4.form-block__btn.text-nowrap Update Password
+					button.btn.btn-primary.col-11.col-sm-6.col-md-3.form-block__btn.text-nowrap Update Password

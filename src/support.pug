@@ -8,7 +8,7 @@ block content
 	.support.row
 		.col
 			h1.main-header Account Support
-			form(method='POST' action='/register')
+			form(method='GET' action='/support_confirm.html')
 				+formGroup('input', 'email', 'email', 'Email Adress')
 				+formRowWithText()
 					p.col-11.col-sm-5.col-md-5.col-lg-4 Type in the email address you used when you created your account to receive assistance in recovering your password

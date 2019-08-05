@@ -1,12 +1,13 @@
-//- .preloader
-	//- .after
-
 div.pos-f-t
-	nav.navbar.navbar-expand-lg.navbar-light
-		button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarToggleExternalContent", aria-controls="navbarToggleExternalContent", aria-expanded="false", aria-label="Toggle navigation")
-			span.navbar-toggler-icon
-		img.nav__logo(src="img/logo.svg")
-		a.navbar-brand.mb-0.h1(href='/') Trailer
+	nav.navbar.navbar-expand-lg.navbar-light.justify-content-between
+		div
+			button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarToggleExternalContent", aria-controls="navbarToggleExternalContent", aria-expanded="false", aria-label="Toggle navigation")
+				span.navbar-toggler-icon
+			img.nav__logo(src="img/logo.svg")
+			a.navbar-brand.mb-0.h1(href='/') Trailer
+		div(class=(navigation === "account_information") ? "visible" : "invisible")
+			a.btn.btn-light.m-1 Account
+			a.btn.btn-light.m-1 Log Off
 
 	div.collapse(id="navbarToggleExternalContent")
 		h5 Collapsed content
