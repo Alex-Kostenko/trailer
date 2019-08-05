@@ -15,12 +15,13 @@ html(lang='en')
 		block navigation
 			include navigation
 
-		div.d-flex
-			div
-				block sidebar
-					include sidebar
-			div.container-fluid
-				block content
+		.container-fluid.p-0
+			.row
+				.col-sm-4.col-12
+					block sidebar
+						include sidebar
+				.col-sm-8.col-12
+					block content
 
 		block footer
 			include footer
