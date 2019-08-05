@@ -13,9 +13,8 @@ block content
 			h3.sub-header Account Email / Username and Password
 			form(method='POST' action='/register')
 				+formGroup('input', 'email', 'email', 'Email Adress')
-				+formRow()
-					.col-md-4
-					p.create_text Your email address is your username
+				+formRowWithText()
+					p.col-11.col-sm-5.col-md-5.col-lg-4 Your email address is your username
 				+formGroup('input', 'password', 'password', 'New Password')
 				+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
 				h3.sub-header Personal Information
@@ -23,6 +22,5 @@ block content
 				+formGroup('input', 'text', 'l-name', 'Last name')
 				+formGroup('select', 'text', 'organization', 'Organization', optionsOrganization)
 				+formGroup('select', 'location', 'location', 'Location', optionsLocation)
-				+formRow()
-					.col-md-4
-					button.btn.btn-primary.col-md-4 Create Account
+				+formRowWithText()
+					button.btn.btn-primary.col-11.col-sm-5.col-md-5.col-lg-4 Create Account

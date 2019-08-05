@@ -1,24 +1,34 @@
 mixin formRow ()
-	.form-row
-		.form-group.col-md-10.d-flex.form-block
-			if block
-				block
+	.form-group.row.form-block
+		if block
+			block
+
+mixin formRowWithText ()
+	.form-group.row.form-block.justify-content-left
+		.col-11.col-sm-5.col-md-4.col-lg-3
+		if block
+			block
+		.col-sm-4
 
 mixin formGroup (type, typeName, name, label, options)
 	+formRow()
 		case type
 			when 'select'
-				label.text-nowrap.col-md-4.form-block__label(for=name)= label
+				label.text-nowrap.col-11.col-sm-5.col-md-4.col-lg-3.form-block__label(for=name)= label
 				+selectOption(name, options)
 				if block
 					block
+				else
+					.col-sm-4
 			default
-				label.text-nowrap.col-md-4.form-block__label(for=name)= label
-				input.form-control.col-md-5.form-block__input(type=typeName, name=name, id=name)
+				label.text-nowrap.col-11.col-sm-5.col-md-4.col-lg-3.form-block__label(for=name)= label
+				input.m-2.form-control.col-11.col-sm-5.col-md-5.col-lg-4.form-block__input(type=typeName, name=name, id=name)
 				if block
 					block
+				else
+					.col-sm-4
 
 mixin selectOption (name, options)
-	select#location.form-control.form-block__input.col-md-5(name=name)
+	select.m-2.form-control.form-block__input.col-11.col-sm-5.col-md-5.col-lg-4(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val

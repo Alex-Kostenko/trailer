@@ -20,6 +20,7 @@ $color: #617083;
 	margin-left: 0.8333rem
 
 .form-block
+	justify-content: center
 	align-items: baseline
 
 	.form-block__label
@@ -27,13 +28,15 @@ $color: #617083;
 		font-weight: bold
 		text-transform: uppercase
 		color: $color
-		text-align: right
+		text-align: center
 
 	.form-block__input
 		border-radius: 13px
 
-.form-block__btn
-	margin-left: 0.5rem
+@include media-breakpoint-up(md)
+	.form-block__btn
+		margin-left: 0.5rem
+
 
 
 

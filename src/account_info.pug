@@ -7,20 +7,20 @@ block vars
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 
 block content
-	.info.row
+	.info.row.m-0
 		.col
 			h1.main-header Account Information
 			h3.sub-header Account Email / Username and Password
-			form.account-info-form.info__form(method='POST' action='/register')
+			form.info__form(method='POST' action='/register')
 				+formGroup('input', 'email', 'email', 'Email Adress')
-					button.btn.btn-primary.col-md-4.form-block__btn Save Email
+					button.btn.btn-primary.col-11.col-sm-6.col-md-4.form-block__btn Save Email
 				h3.sub-header Personal Information
 				+formGroup('input', 'text', 'f-name', 'First name')
 				+formGroup('input', 'text', 'l-name', 'Last Name')
 				+formGroup('select', 'organization', 'organization', 'Organization', optionsOrganization)
-				+formGroup('select', 'organization', 'location', 'Location', optionsLocation)
-					button.btn.btn-primary.col-md-5.form-block__btn.text-nowrap Update Personal Information
+				+formGroup('select', 'location', 'location', 'Location', optionsLocation)
+					button.btn.btn-primary.col-11.col-sm-6.col-md-4.form-block__btn.text-nowrap Update Personal Information
 				h3.sub-header Password Update
 				+formGroup('input', 'password', 'password', 'New Password')
 				+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
-					button.btn.btn-primary.col-md-4.form-block__btn.text-nowrap Update Password
+					button.btn.btn-primary.col-11.col-sm-6.col-md-4.form-block__btn.text-nowrap Update Password
