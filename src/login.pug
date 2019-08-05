@@ -5,17 +5,17 @@ block vars
 	- var sidebar_nav = "login"
 
 block content
-	.login.row
+	.login.row.mr-0
 		.col
 			h1.main-header Welcome!
 			form(method='POST' action='/register')
 				+formGroup('input', 'text', 'name', 'Username')
 				+formGroup('input', 'password', 'password', 'Password')
 				+formRowWithText()
-					a.col-11.col-sm-5.col-md-5.col-lg-4(href='/') Forgot your password?
+					a.col-11.col-sm-5.col-md-5.col-lg-4(href='/support.html') Forgot your password?
 				+formRowWithText()
-					button.btn.btn-primary.col-11.col-sm-5.col-md-5.col-lg-4(type='submit') Log In
+					button.btn.main-btn.col-11.col-sm-5.col-md-5.col-lg-4(type='submit') Log In
 				+formRowWithText()
-					p.login_text.col-11.col-sm-5.col-md-5.col-lg-4 Or if you are new, please
+					p.login_text.col-11.col-sm-5.col-md-5.col-lg-4.mt-2 Or if you are new, please
 				+formRowWithText()
-					button.btn.btn-primary.col-11.col-sm-5.col-md-5.col-lg-4 Create a New Account
+					button.btn.main-btn.col-11.col-sm-5.col-md-5.col-lg-4 Create a New Account

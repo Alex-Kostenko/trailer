@@ -8,7 +8,7 @@ mixin formRowWithText ()
 		.col-11.col-sm-5.col-md-4.col-lg-3
 		if block
 			block
-		.col-sm-4.col-md-3
+		.col-sm-4
 
 mixin formGroup (type, typeName, name, label, options)
 	+formRow()
@@ -19,14 +19,14 @@ mixin formGroup (type, typeName, name, label, options)
 				if block
 					block
 				else
-					.col-sm-4.col-md-3
+					.col-sm-4
 			default
 				label.text-nowrap.col-11.col-sm-5.col-md-4.col-lg-3.form-block__label(for=name)= label
 				input.m-2.form-control.col-11.col-sm-5.col-md-5.col-lg-4.form-block__input(type=typeName, name=name, id=name)
 				if block
 					block
 				else
-					.col-sm-4.col-md-3
+					.col-sm-4
 
 mixin selectOption (name, options)
 	select.m-2.form-control.form-block__input.col-11.col-sm-5.col-md-5.col-lg-4(name=name, id=name)

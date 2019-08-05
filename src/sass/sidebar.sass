@@ -4,9 +4,9 @@ $nav_background_color: #EBECEF
 
 .sidebar
   min-width: 225px
-  min-height: 90vh
+  min-height: fit-content
   background-color: $nav_background_color
-  padding-top: 100px
+  padding-top: 10px
   height: 100%
 ul
   height: 100%
@@ -28,4 +28,7 @@ ul
       color: $nav_active_link_color
       font-weight: bold
 
-      
+@include media-breakpoint-up(md)
+  .sidebar
+    min-height: 90vh
+    padding-top: 100px
