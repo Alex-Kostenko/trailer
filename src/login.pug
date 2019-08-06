@@ -5,19 +5,18 @@ block vars
 	- var sidebar_nav = "login"
 
 block content
-	.login.row.m-0
-		.col
-			h1.main-header Welcome!
-			form(method='POST' action='/register')
-				+formGroup('input', 'text', 'name', 'Username')
+	.account-info__headers.offset-md-3
+		h1.main-header Welcome!
+	form(method='POST' action='/register')
+		+formGroup('input', 'text', 'name', 'Username')
 
-				+formGroup('input', 'password', 'password', 'Password')
+		+formGroup('input', 'password', 'password', 'Password')
 
-				.form-block.d-flex.pleft.mt-2.mb-3 	
-					a(href='support.html') Forgot your password?
-				.form-block.d-flex.pleft
-					button.btn.main-btn(type='submit') Log In
-				.form-block.d-flex.pleft
-					p.mt-3.mb-3.p-0 Or if you are new, please
-				.form-block.d-flex.pleft
-					button.btn.main-btn Createa New Account
+		.offset-md-3.offset-lg-5.account-info__row
+			a.account-info__text(href='support.html') Forgot your password?
+		.offset-md-3.offset-lg-5.col-md-4.col-lg-2.account-info__row
+			button.btn.form-group-button(type='submit') Log In
+		.offset-md-3.offset-lg-5.account-info__row
+			p.account-info__text.p-0.account-info__text Or if you are new, please
+		.offset-md-3.offset-lg-5.col-md-6.col-lg-3.account-info__row
+			button.btn.form-group-button Createa New Account
