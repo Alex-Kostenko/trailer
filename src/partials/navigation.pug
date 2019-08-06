@@ -1,8 +1,8 @@
-div.pos-f-t
-	nav.navbar.navbar-expand-lg.navbar-light.justify-content-between
+div.main-layout-navbar
+	nav.navbar.navbar-expand-lg.navbar-light.justify-content-between.container
 		div
 			img.nav__logo(src="img/logo.svg")
 			a.navbar-brand.mb-0.h1(href='/') Trailer
-		div(class=(navigation === "account_information") ? "visible" : "invisible")
+		div(class=(navigation === "account_information") ? "d-block" : "d-none")
 			a.btn.btn-light.m-1 Account
 			a.btn.btn-light.m-1 Log Off

@@ -15,26 +15,14 @@ const prodConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(scss|sass)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'sass-loader',
         ],
       },
     ],
-  },
-
-  optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
   },
 
   devtool: 'source-map',
@@ -42,7 +30,7 @@ const prodConfig = {
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'css/[name].css',
     }),
     new OptimizeCssAssetsPlugin()
   ]

@@ -5,17 +5,18 @@ block vars
 	- var sidebar_nav = "login"
 
 block content
-	.login.row.mr-0
-		.col
-			h1.main-header Welcome!
-			form(method='POST' action='/register')
-				+formGroup('input', 'text', 'name', 'Username')
-				+formGroup('input', 'password', 'password', 'Password')
-				+formRowWithText()
-					a.col-11.col-sm-5.col-md-5.col-lg-4(href='/support.html') Forgot your password?
-				+formRowWithText()
-					button.btn.main-btn.col-11.col-sm-5.col-md-5.col-lg-4(type='submit') Log In
-				+formRowWithText()
-					p.login_text.col-11.col-sm-5.col-md-5.col-lg-4.mt-2 Or if you are new, please
-				+formRowWithText()
-					button.btn.main-btn.col-11.col-sm-5.col-md-5.col-lg-4 Create a New Account
+	.account-info__headers.offset-md-3.col-md-9
+		h1.main-header Welcome!
+	form(method='POST' action='/register')
+		+formGroup('input', 'text', 'name', 'Username')
+
+		+formGroup('input', 'password', 'password', 'Password')
+
+		.offset-md-3.offset-lg-5.account-info__row
+			a.account-info__text(href='support.html') Forgot your password?
+		.offset-md-3.offset-lg-5.col-md-4.col-lg-2.account-info__row
+			button.btn.form-group-button(type='submit') Log In
+		.offset-md-3.offset-lg-5.account-info__row
+			p.account-info__text.p-0.account-info__text Or if you are new, please
+		.offset-md-3.offset-lg-5.col-md-6.col-lg-3.account-info__row
+			button.btn.form-group-button Createa New Account

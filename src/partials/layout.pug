@@ -15,13 +15,10 @@ html(lang='en')
 		block navigation
 			include navigation
 
-		.container-fluid.p-0
-			.row.mr-0
-				.col-12.col-md-4.col-lg-3.pr-0
-					block sidebar
-						include sidebar
-				.col-12.col-md-8.col-lg-9.m-0.pr-0
-					block content
+		.container.main-layout-container
+			block sidebar
+				include sidebar
+			block content
 
 		block footer
 			include footer

@@ -36,7 +36,7 @@ const commonConfig = {
 
   output: {
     filename: '[name].js',
-    publicPath: '/',
+    // publicPath: '/',
   },
 
   module: {

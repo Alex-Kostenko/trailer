@@ -5,12 +5,11 @@
 $nav-text-color: #224356
 
 nav.navbar
+  background: white
   justify-content: left
-  border-bottom: 1px solid #C4C4C4;
 
   .nav__logo
     margin-bottom: 15px
-    margin-left: 35px
     margin-top: 15px
 
   a.navbar-brand
@@ -19,3 +18,15 @@ nav.navbar
     font-weight: bold
     line-height: 150%
     margin-left: 15px
+
+.main-layout-navbar
+  z-index: 10
+  position: fixed
+  left: 0
+  right: 0
+
+  &:after 
+    content: ''
+    width: 100%
+    border-bottom: 1px solid #C4C4C4
+    position: fixed
