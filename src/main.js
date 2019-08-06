@@ -1,7 +1,4 @@
-import 'bootstrap';
 import "./sass/build.sass";
-import "./sass/fonts.sass";
-import "./sass/bootstrap.sass";
 import "./index.pug";
 import "./login.pug";
 import "./home.pug";

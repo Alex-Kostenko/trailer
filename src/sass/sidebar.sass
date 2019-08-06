@@ -1,6 +1,6 @@
 $nav_active_link_color: #2AA7FF
 $nav_link_color: #617083
-$nav_background_color: #EBECEF
+$nav_background_color: #ebecef
 
 .sidebar
   width: 100vw
@@ -8,6 +8,43 @@ $nav_background_color: #EBECEF
   background-color: $nav_background_color
   padding-top: 10px
   height: 100%
+
+  // @include media-breakpoint-up(md)
+  //   width: map-get($container-max-widths, xl) / 12 * 3
+  //   position: fixed
+  //   top: $navbar-height
+  //   bottom: 0
+  //   left: calc(50% - #{map-get($container-max-widths, xl) / 2})
+  //   right: calc(50% - #{map-get($container-max-widths, xl) / 2} + map-get($container-max-widths, xl) / 12 * 3)
+
+  @include media-breakpoint-up(lg)
+    width: map-get($container-max-widths, lg) / 12 * 3
+    position: fixed
+    top: $navbar-height
+    bottom: 0
+    left: calc(50% - #{map-get($container-max-widths, lg) / 2})
+    right: calc(50% - #{map-get($container-max-widths, lg) / 2} + map-get($container-max-widths, lg) / 12 * 3)
+
+  @include media-breakpoint-up(xl)
+    width: map-get($container-max-widths, xl) / 12 * 3
+    position: fixed
+    top: $navbar-height
+    bottom: 0
+    left: calc(50% - #{map-get($container-max-widths, xl) / 2})
+    right: calc(50% - #{map-get($container-max-widths, xl) / 2} + map-get($container-max-widths, xl) / 12 * 3)
+
+  &::before
+    content: ''
+    background: $nav_background_color
+    display: block
+    position: fixed
+    left: 0
+    bottom: 0
+    top: $navbar-height
+    width: calc(50% - #{map-get($container-max-widths, xl) / 2})
+    z-index: -1
+
+
 ul
   height: 100%
 
@@ -27,9 +64,3 @@ ul
     a.nav-link
       color: $nav_active_link_color
       font-weight: bold
-
-@include media-breakpoint-up(md)
-  .sidebar
-    width: 250px
-    min-height: 90vh
-    padding-top: 100px
