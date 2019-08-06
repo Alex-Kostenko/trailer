@@ -7,7 +7,7 @@ block vars
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 
 block content
-	.account-info__headers.offset-md-3
+	.account-info__headers.offset-md-3.col-md-9
 		h1.main-header Welcome!
 		h3.sub-header Account Email / Username and Password
 	form(method='POST' action='/register')
@@ -16,7 +16,7 @@ block content
 			p.p-0.account-info__text Your email address is your username
 		+formGroup('input', 'password', 'password', 'New Password')
 		+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
-		h3.sub-header.account-info__headers Personal Information
+		h3.sub-header.account-info__headers.col-md-9 Personal Information
 		+formGroup('input', 'text', 'f-name', 'First name')
 		+formGroup('input', 'text', 'l-name', 'Last name')
 		+formGroup('select', 'text', 'organization', 'Organization', optionsOrganization)

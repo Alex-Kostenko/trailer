@@ -8,21 +8,21 @@ block vars
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 
 block content
-	.account-info__headers.offset-md-3
+	.account-info__headers.offset-md-3.col-md-9
 		h1.main-header Account Information
 		h3.sub-header Account Email / Username and Password
 	form.account-info__form(method='POST' action='/register')
 		+formGroup('input', 'email', 'email', 'Email Adress')
 			.col-md-3
 				button.btn.form-group-button Save Email
-		h3.sub-header.offset-md-3.account-info__headers Personal Information
+		h3.sub-header.offset-md-3.col-md-9.account-info__headers Personal Information
 		+formGroup('input', 'text', 'f-name', 'First name', '')
 		+formGroup('input', 'text', 'l-name', 'Last Name', '')
 		+formGroup('select', 'organization', 'organization', 'Organization', optionsOrganization)
 		+formGroup('select', 'location', 'location', 'Location', optionsLocation)
 			.col-md-4
 				button.btn.form-group-button Update Personal Information
-		h3.sub-header.offset-md-3.account-info__headers Password Update
+		h3.sub-header.offset-md-3.col-md-9.account-info__headers Password Update
 		+formGroup('input', 'password', 'password', 'New Password')
 		+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
 			.col-md-3
