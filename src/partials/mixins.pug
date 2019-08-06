@@ -1,5 +1,5 @@
 mixin formRow ()
-	.form-group.row.form-block
+	.form-block.d-flex
 		if block
 			block
 
@@ -44,11 +44,6 @@ mixin FormSelectOption (name, options)
 	select.m-2.form-control.form-block__input(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
-
-//- mixin FormSelectOption (name, options)
-//- 	select.m-2.form-control.form-block__input.col-11.col-md-4(name=name, id=name)
-//- 		each val, index in options
-//- 			option(value=index, selected=(index == 0))= val
 
 mixin selectOption (name, options)
 	select.m-2.form-control.form-block__input.col-12(name=name, id=name)
