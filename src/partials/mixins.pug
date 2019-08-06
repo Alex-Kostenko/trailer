@@ -11,27 +11,44 @@ mixin formRowWithText ()
 		.col-sm-3
 
 mixin formGroup (type, typeName, name, label, options)
-	+formRow()
+	.form-block.d-flex
 		case type
 			when 'select'
-				label.col-11.col-md-4.form-block__label(for=name)= label
+				label.form-block__label(for=name)= label
 				+FormSelectOption(name, options)
-				if block
+				if (block)
 					block
-				else
-					.col-sm-3
+
 			default
-				label.col-11.col-md-4.form-block__label(for=name)= label
-				input.m-2.form-control.col-11.col-md-4.form-block__input(type=typeName, name=name, id=name)
-				if block
+				label.form-block__label(for=name)= label
+				input.m-2.form-control.form-block__input(type=typeName, name=name, id=name)
+				if (block)
 					block
-				else
-					.col-sm-3
+
+//- mixin formGroup (type, typeName, name, label, options)
+//- 	+formRow()
+//- 		case type
+//- 			when 'select'
+//- 				label.col-11.col-md-4.form-block__label(for=name)= label
+//- 				+FormSelectOption(name, options)
+//- 				if (block)
+//- 					block
+
+//- 			default
+//- 				label.col-11.col-md-4.form-block__label(for=name)= label
+//- 				input.m-2.form-control.col-11.col-md-4.form-block__input(type=typeName, name=name, id=name)
+//- 				if (block)
+//- 					block
 
 mixin FormSelectOption (name, options)
-	select.m-2.form-control.form-block__input.col-11.col-md-4(name=name, id=name)
+	select.m-2.form-control.form-block__input(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
+
+//- mixin FormSelectOption (name, options)
+//- 	select.m-2.form-control.form-block__input.col-11.col-md-4(name=name, id=name)
+//- 		each val, index in options
+//- 			option(value=index, selected=(index == 0))= val
 
 mixin selectOption (name, options)
 	select.m-2.form-control.form-block__input.col-12(name=name, id=name)

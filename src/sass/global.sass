@@ -21,11 +21,10 @@ $color: #2AA7FF;
   background-color: $color
   border-color: $color
 
-.main-header	
+.main-header
 	font-size: 2rem
 	line-height: 150%
 	margin-top: 0.8333rem
-	margin-left: 0.8333rem
 
 .sub-header
 	font-family: Roboto-thin
@@ -35,12 +34,19 @@ $color: #2AA7FF;
 	margin-top: 0.8333rem
 	margin-left: 0.8333rem
 
+.pleft
+	padding-left: 0
+
 .form-block
-	justify-content: center
 	align-items: baseline
-	max-width: 800px
+	max-width: 702px
+	justify-content: center
+	flex-direction: column
+	align-items: center
+	flex-wrap: wrap
 
 	.form-block__label
+		width: 200px
 		line-height: 21px
 		font-weight: bold
 		text-transform: uppercase
@@ -48,6 +54,7 @@ $color: #2AA7FF;
 		text-align: center
 
 	.form-block__input
+		width: 250px
 		border-radius: 13px
 		padding-bottom: 11px
 
@@ -55,6 +62,9 @@ $color: #2AA7FF;
 		color: #fff
 		background: $color
 		border-color: $color
+		width: 234px
+		margin-top: 20px
+		margin-bottom: 20px
 
 	.main-btn:hover
 		color: #fff
@@ -67,12 +77,28 @@ $color: #2AA7FF;
 
 @include media-breakpoint-up(md)
 	.form-block
+		justify-content: space-evenly
+		flex-direction: row
+
+	.pleft
+		padding-left: 210px
+
+	.main-header
+		margin-left: 0.8333rem
+
+	.form-block
 		.form-block__label
 			text-align: right
+
+		.form-block__input
 
 		.form-block__btn
 			margin-left: 0.5rem
 
+@media (min-width: 1111px)
+	.form-block
+		justify-content: left
+		flex-direction: row
 
 
 

@@ -3,7 +3,7 @@ $nav_link_color: #617083
 $nav_background_color: #EBECEF
 
 .sidebar
-  min-width: 225px
+  width: 100vw
   min-height: fit-content
   background-color: $nav_background_color
   padding-top: 10px
@@ -30,5 +30,6 @@ ul
 
 @include media-breakpoint-up(md)
   .sidebar
+    width: 250px
     min-height: 90vh
     padding-top: 100px

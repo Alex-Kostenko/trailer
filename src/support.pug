@@ -10,7 +10,7 @@ block content
 			h1.main-header Account Support
 			form(method='GET' action='/support_confirm.html')
 				+formGroup('input', 'email', 'email', 'Email Adress')
-				+formRowWithText()
-					p.col-11.col-lg-4.p-0 Type in the email address you used when you created your account to receive assistance in recovering your password
-				+formRowWithText()
-					button.btn.main-btn.col-md-4 Submit
+				.form-block.d-flex.pleft
+					p.support-text.p-0 Type in the email address you used when you created your account to receive assistance in recovering your password
+				.form-block.d-flex.pleft
+					button.btn.main-btn Submit

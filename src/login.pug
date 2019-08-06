@@ -10,16 +10,14 @@ block content
 			h1.main-header Welcome!
 			form(method='POST' action='/register')
 				+formGroup('input', 'text', 'name', 'Username')
+
 				+formGroup('input', 'password', 'password', 'Password')
-				.form-group.row.form-block.justify-content-left
-					.col-11.col-md-3
-					a.col-11.col-md-3.p-0(href='/support.html') Forgot your password?
-					.col-sm-3
-				+formRowWithText()
-					button.btn.main-btn.col-11.col-md-4(type='submit') Log In
-				.form-group.row.form-block.justify-content-left
-					.col-11.col-md-3
-					p.login_text.col-11.col-md-3.col-md-push-4.mt-2.p-0 Or if you are new, please
-					.col-sm-3
-				+formRowWithText()
-					button.btn.main-btn.col-11.col-md-4 Createa New Account
+
+				.form-block.d-flex.pleft.mt-2.mb-3 	
+					a(href='/support.html') Forgot your password?
+				.form-block.d-flex.pleft
+					button.btn.main-btn(type='submit') Log In
+				.form-block.d-flex.pleft
+					p.mt-3.mb-3.p-0 Or if you are new, please
+				.form-block.d-flex.pleft
+					button.btn.main-btn Createa New Account
