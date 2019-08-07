@@ -14,8 +14,9 @@ block content
 			h3.sub-header Account Email / Username and Password
 		form.account-info__form(method='POST' action='/register')
 			+formGroup('input', 'email', 'email', 'Email Adress')
-				.col-lg-4.col-xl-2
+				.col-lg-5.col-xl-2
 					button.btn.form-group-button.form-group-button-big Save Email
+
 			h3.sub-header.offset-md-3.col-md-9.account-info__headers Personal Information
 			+formGroup('input', 'text', 'f-name', 'First name', '')
 			+formGroup('input', 'text', 'l-name', 'Last Name', '')
@@ -23,8 +24,9 @@ block content
 			+formGroup('select', 'location', 'location', 'Location', optionsLocation)
 				.col-lg-5.col-xl-3
 					button.btn.form-group-button.form-group-button-big Update Personal Information
+
 			h3.sub-header.offset-md-3.col-md-9.account-info__headers Password Update
 			+formGroup('input', 'password', 'password', 'New Password')
 			+formGroup('input', 'password', 'confirm-password', 'Confirm Password')
-				.col-lg-4.col-xl-2
-					button.btn.main-btn.form-group-button-big Update Password
+				.col-lg-5.col-xl-2
+					button.btn.form-group-button.form-group-button-big Update Password

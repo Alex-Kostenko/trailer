@@ -7,17 +7,18 @@ $nav_background_color: #ebecef
   height: 100%
   padding-top: 100px
   position: fixed
-  width: 45px
+  width: 0
   overflow: hidden
-  transition: width 200ms
+  transition: all 200ms
   z-index: 10
 
   @include media-breakpoint-up(sm)
-    transform: translateX(-70px)
+    width: 0
+
+  @include media-breakpoint-up(md)
+    width: 70px
 
   @include media-breakpoint-up(lg)
-    transform: translateX(0)
-    display: block
     width: 70px
 
   @media(min-width: 1000px)
@@ -27,55 +28,27 @@ $nav_background_color: #ebecef
     width: 340px
 
   &__item
-    margin: 10px
+    margin: 0.55rem
     justify-content: flex-start
+    white-space: nowrap
 
-    @include media-breakpoint-up(sm)
-      margin-left: 25px
+  &__link
+    color: $nav_link_color
+    font-weight: normal
+    line-height: 1.17rem
 
-.sidebar-compact
-  width: 250px
+  .active
+    border-left: 2px solid $nav_active_link_color
 
-  @include media-breakpoint-up(md)
-    width: 70px
-
-  // @include media-breakpoint-up(lg)
-  //   width: map-get($container-max-widths, lg) / 12 * 3
-  //   position: fixed
-  //   top: $navbar-height
-  //   bottom: 0
-  //   left: calc(50% - #{map-get($container-max-widths, lg) / 2})
-  //   right: calc(50% - #{map-get($container-max-widths, lg) / 2} + map-get($container-max-widths, lg) / 12 * 3)
-
-  // @include media-breakpoint-up(xl)
-  //   width: map-get($container-max-widths, xl) / 12 * 3
-  //   position: fixed
-  //   top: $navbar-height
-  //   bottom: 0
-  //   left: calc(50% - #{map-get($container-max-widths, xl) / 2})
-  //   right: calc(50% - #{map-get($container-max-widths, xl) / 2} + map-get($container-max-widths, xl) / 12 * 3)
-
-  // &::before
-  //   content: ''
-  //   background: $nav_background_color
-  //   display: block
-  //   position: fixed
-  //   left: 0
-  //   bottom: 0
-  //   top: $navbar-height
-  //   width: calc(50% - #{map-get($container-max-widths, lg) / 2})
-  //   z-index: -1
-
-
-ul
-  li
-    a.nav-link
-      color: $nav_link_color
-      font-weight: normal
-      line-height: 21px
-      padding-left: 30px
-
-  li.active
-    a.nav-link
+    .sidebar__link
       color: $nav_active_link_color
       font-weight: bold
+
+.sidebar-full
+  width: 250px
+
+.sidebar-compact
+  width: 70px
+
+.sidebar-hide
+  width: 0
