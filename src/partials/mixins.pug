@@ -11,36 +11,23 @@ mixin formRowWithText ()
 		.col-sm-3
 
 mixin formGroup (type, typeName, name, label, options)
-	.form-block.row
+	.form-block.d-flex
 		case type
 			when 'select'
-				label.form-block__label.col-md-3.col-lg-2.offset-md-3(for=name)= label
-				.col-md-5.col-lg-3
+				.offset-lg-3.col-md-5.col-lg-3.col-xl-2.form__row
+					label.form-block__label(for=name)= label
+				.col-md-6.col-lg-4.col-xl-3
 					+FormSelectOption(name, options)
 				if (block)
 					block
 
 			default
-				label.form-block__label.col-md-3.col-lg-2.offset-md-3(for=name)= label
-				.col-md-5.col-lg-3
+				.offset-lg-3.col-md-5.col-lg-3.col-xl-2.form__row
+					label.form-block__label(for=name)= label
+				.col-md-6.col-lg-4.col-xl-3
 					input.form-control.form-block__input(type=typeName, name=name, id=name)
 				if (block)
 					block
-
-//- mixin formGroup (type, typeName, name, label, options)
-//- 	+formRow()
-//- 		case type
-//- 			when 'select'
-//- 				label.col-11.col-md-4.form-block__label(for=name)= label
-//- 				+FormSelectOption(name, options)
-//- 				if (block)
-//- 					block
-
-//- 			default
-//- 				label.col-11.col-md-4.form-block__label(for=name)= label
-//- 				input.form-control.col-11.col-md-4.form-block__input(type=typeName, name=name, id=name)
-//- 				if (block)
-//- 					block
 
 mixin FormSelectOption (name, options)
 	select.form-control.form-block__input(name=name, id=name)

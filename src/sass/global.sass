@@ -17,6 +17,25 @@ $hover_color: #007bff;
 	background: $color
 	color: #fff
 
+
+.form__row
+	text-align: center
+
+	@include media-breakpoint-up(md)
+		text-align: right
+		padding-left: 0
+
+
+.content-container
+	padding-left: 45px
+	padding-top: 100px
+
+	@include media-breakpoint-up(lg)
+		padding-left: 0
+	// 	max-width: 768px
+	// @include media-breakpoint-up(lg)
+	// 	max-width: 992px
+
 .main-btn
 	color: #fff
   background-color: $color
@@ -40,12 +59,20 @@ $hover_color: #007bff;
 	border-color: $color
 	margin-top: 20px
 	margin-bottom: 20px
-	padding: 0.375rem 0.63rem
+	padding: 0.375rem 0.27rem
 
 	&:hover
 		color: #fff
 		background: $hover_color
 		border-color: $hover_color
+
+.form-group-button-big
+	@include media-breakpoint-up(lg)
+		margin-left: 350px
+
+	@include media-breakpoint-up(xl)
+		margin-left: 0
+
 
 .form-block
 	align-items: baseline
@@ -94,11 +121,6 @@ $hover_color: #007bff;
 
 		.form-block__btn
 			margin-left: 0.5rem
-
-@include media-breakpoint-up(lg)
-	.form-block
-		.form-block__label
-			margin-left: 25%
 
 .form-block__input
 	border-radius: 13px

@@ -1,10 +1,10 @@
-ul.nav.flex-column.sidebar
-  li.d-flex(class=(sidebar_nav === "login") ? 'active' : "")
+ul.nav.flex-column.sidebar(id="sidebar")
+  li.d-flex.sidebar__item(class=(sidebar_nav === "login") ? 'active' : "")
     img(src=(sidebar_nav === "login") ? "img/img_login-active.svg" : "img/img_login.svg")
     a.nav-link(href="login.html") Login
-  li.d-flex(class=(sidebar_nav === "create_account") ? 'active' : "")
+  li.d-flex.sidebar__item(class=(sidebar_nav === "create_account") ? 'active' : "")
     img(src=(sidebar_nav === "create_account") ? "img/img_create-active.svg" : "img/img_create.svg")
     a.nav-link(href="create_account.html") Create Account
-  li.d-flex(class=(sidebar_nav === "support") ? 'active' : "")
+  li.d-flex.sidebar__item(class=(sidebar_nav === "support") ? 'active' : "")
     img(src=(sidebar_nav === "support") ? "img/img_support-active.svg" : "img/img_support.svg")
     a.nav-link(href="support.html") Support
