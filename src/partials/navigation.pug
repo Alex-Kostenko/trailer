@@ -1,8 +1,12 @@
+
 div.main-layout-navbar
-	nav.navbar.navbar-expand-lg.navbar-light.justify-content-between.container
+	nav.navbar.navbar-light.justify-content-between
 		div
-			img.nav__logo(src="img/logo.svg")
-			a.navbar-brand.mb-0.h1(href='/') Trailer
+			span#toogle-menu.navbar-toggler-icon
+			a.navbar-brand.mb-0.h1(href='/')
+				img.nav__logo(src="img/logo.svg")
+			a.navbar-brand.mb-0.h1(href="/") Trailer
 		div(class=(navigation === "account_information") ? "d-block" : "d-none")
 			a.btn.btn-light.m-1 Account
 			a.btn.btn-light.m-1 Log Off
+
