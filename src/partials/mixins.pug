@@ -29,6 +29,25 @@ mixin formGroup (type, typeName, name, label, options)
 				if (block)
 					block
 
+mixin formGroupSearch (type, typeName, name, label, options)
+	.form-block.d-flex
+		case type
+			when 'select'
+				.offset-lg-3.col-md-5.col-lg-3.col-xl-2.form__row
+					label.form-block__label(for=name)= label
+				.col-md-7.col-lg-4.col-xl-3
+					+FormSelectOption(name, options)
+				if (block)
+					block
+
+			default
+				.col-md-5.col-lg-3.col-xl-3.form__row
+					label.form-block__label(for=name)= label
+				.col-md-7.col-lg-4.col-xl-4
+					input.form-control.form-block__input(type=typeName, name=name, id=name)
+				if (block)
+					block
+
 mixin FormSelectOption (name, options)
 	select.form-control.form-block__input(name=name, id=name)
 		each val, index in options

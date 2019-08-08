@@ -4,8 +4,41 @@ block vars
 	- var isAdmin = true
 	- var title = "Trailer - Trailers Details"
 	- var sidebar_nav = "trailers"
+	- var optionsBussines = ['Bussines1', 'Bussines2', 'Bussines3']
+	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 
 block content
 	.container.content-container
-		.offset-lg-3.col-lg-9
-			h1.main-header Trailers Details
+		//- Tab links
+		.tab.offset-lg-3.col-lg-9
+			button#Home.tab__links Home
+			button#Detail.tab__links Detail
+
+		//- .offset-lg-3.col-lg-9
+			//- Tab content Home
+		div#Home-container.tab__content.offset-lg-3.col-lg-9
+			h1.main-header Search For a Trailer
+
+			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', '')
+				.col-lg-5.col-xl-2
+					button.btn.form-group-button.form-group-button-big Find
+			p or
+			+formGroupSearch('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', '')
+				.col-lg-5.col-xl-2
+					button.btn.form-group-button.form-group-button-big Find
+			p or
+			+formGroupSearch('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', '')
+				.col-lg-5.col-xl-2
+					button.btn.form-group-button.form-group-button-big Find
+
+
+			h1.main-header Search For a Trailer by Locations & Business
+			.d-flex
+				+FormSelectOption('bussines',optionsBussines)
+				+FormSelectOption('location',optionsLocation)
+				button.btn.form-group-button.form-group-button-big Find
+
+		//- Tab content Detail
+		div#Detail-container.tab__content
+			h3 Detail
+			p Detail
