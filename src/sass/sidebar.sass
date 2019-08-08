@@ -7,25 +7,34 @@ $nav_background_color: #ebecef
   height: 100%
   padding-top: 100px
   position: fixed
-  width: 70px
+  width: 0
   overflow: hidden
   transition: all 200ms
   z-index: 10
 
-  // @include media-breakpoint-up(sm)
-  //   width: 0
+  @include media-breakpoint-up(sm)
+    width: 0
 
-  // @include media-breakpoint-up(md)
-  //   width: 70px
+  @include media-breakpoint-up(md)
+    width: 70px
 
-  // @include media-breakpoint-up(lg)
-  //   width: 70px
+  @include media-breakpoint-up(lg)
+    width: 70px
 
-  // @media(min-width: 1000px)
-  //   width: 250px
+  @media(min-width: 1000px)
+    width: 250px
 
-  // @include media-breakpoint-up(xl)
-  //   width: 340px
+  @include media-breakpoint-up(xl)
+    width: 340px
+
+  &_open
+    width: 250px
+
+    @media(min-width: 1000px)
+      width: 70px
+
+    @include media-breakpoint-up(xl)
+      width: 70px
 
   &__item
     margin: 0.55rem
@@ -37,15 +46,10 @@ $nav_background_color: #ebecef
     font-weight: normal
     line-height: 1.17rem
 
+
   .active
     border-left: 2px solid $nav_active_link_color
 
     .sidebar__link
       color: $nav_active_link_color
       font-weight: bold
-
-.sidebar_mobile
-  width: 0
-
-.sidebar_open
-  width: 250px
