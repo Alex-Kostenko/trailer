@@ -11,6 +11,7 @@ $nav_background_color: #ebecef
   overflow: hidden
   transition: all 200ms
   z-index: 10
+  border-left: 2px solid $nav_background_color
 
   @include media-breakpoint-up(sm)
     width: 0
@@ -46,6 +47,12 @@ $nav_background_color: #ebecef
     font-weight: normal
     line-height: 1.17rem
 
+  &__img
+    vertical-align: middle
+    flex-direction: row
+    height: auto
+    margin-right: 1.67rem
+    width: 1.3rem
 
   .active
     border-left: 2px solid $nav_active_link_color

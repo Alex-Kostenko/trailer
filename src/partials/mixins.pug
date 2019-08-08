@@ -38,3 +38,11 @@ mixin selectOption (name, options)
 	select.form-control.form-block__input.col-12(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
+
+mixin createSidebarMenu (links)
+	ul.nav.flex-column.sidebar(id="sidebar")
+		each link in links
+			li.d-flex.sidebar__item(class=(sidebar_nav === link.name) ? 'active' : "")
+				a.nav-link.sidebar__link(href=`${link.name}.html`)
+					img.sidebar__img(src=(sidebar_nav === link.name) ? `img/img_${link.name}-active.svg` : `img/img_${link.name}.svg`)
+					= link.title
