@@ -9,8 +9,8 @@ import "./support_confirm.pug";
 
 (function () {
   var sidebarElement = document.getElementById("sidebar");
-  document.getElementById("toogle-menu").onclick = function() { 
-    // sidebarElement
-    sidebarElement.classList.toggle('sidebar-compact');
-  }
+
+  document.getElementById("toogle-menu").addEventListener('click', function() {
+    sidebarElement.classList.toggle('sidebar_open');
+  });
 })();

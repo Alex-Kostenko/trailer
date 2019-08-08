@@ -16,7 +16,7 @@ mixin formGroup (type, typeName, name, label, options)
 			when 'select'
 				.offset-lg-3.col-md-5.col-lg-3.col-xl-2.form__row
 					label.form-block__label(for=name)= label
-				.col-md-6.col-lg-4.col-xl-3
+				.col-md-7.col-lg-4.col-xl-3
 					+FormSelectOption(name, options)
 				if (block)
 					block
@@ -24,7 +24,7 @@ mixin formGroup (type, typeName, name, label, options)
 			default
 				.offset-lg-3.col-md-5.col-lg-3.col-xl-2.form__row
 					label.form-block__label(for=name)= label
-				.col-md-6.col-lg-4.col-xl-3
+				.col-md-7.col-lg-4.col-xl-3
 					input.form-control.form-block__input(type=typeName, name=name, id=name)
 				if (block)
 					block
