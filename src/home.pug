@@ -1,17 +1,19 @@
 extends partials/layout
 
 block vars
+	- var isAdmin = true
 	- var title = "Trailer - Home"
 	- var sidebar_nav = "home"
 
 block content
-	.login.row.m-0
-		h1.main-header Reporting Locations
+	.container.content-container
+		.offset-lg-3.col-lg-9
+			h1.main-header Reporting Locations
+
+		.offset-lg-3.col-lg-3
 			+formRow()
 				+selectOption('bussines', ['bussines1', 'bussines2', 'bussines3'])
 			+formRow()
 				+selectOption('location', ['location1', 'location2', 'location3'])
-			div.container
-				div.map-responsive
-				iframe(src="https://www.google.com/maps/embed/v1/view?zoom=10&center=50.4501,30.5234", width="200", height="200", frameborder="1", style="border:0", allowfullscreen)
-			h3.sub-header Trailer details
+			div.map-responsive
+				iframe(src="https://www.google.com/maps/embed/v1/view?zoom=10&center=50.4501,30.5234", frameborder="1", allowfullscreen)
