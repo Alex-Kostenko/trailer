@@ -1,13 +1,29 @@
-ul.nav.flex-column.sidebar(id="sidebar")
-  li.d-flex.sidebar__item(class=(sidebar_nav === "login") ? 'active' : "")
-    a.nav-link.sidebar__link(href="login.html")
-      img(src=(sidebar_nav === "login") ? "img/img_login-active.svg" : "img/img_login.svg")
-    a.nav-link.sidebar__link(href="login.html") Login
-  li.d-flex.sidebar__item(class=(sidebar_nav === "create_account") ? 'active' : "")
-    a.nav-link.sidebar__link(href="create_account.html")
-      img(src=(sidebar_nav === "create_account") ? "img/img_create-active.svg" : "img/img_create.svg")
-    a.nav-link.sidebar__link(href="create_account.html") Create Account
-  li.d-flex.sidebar__item(class=(sidebar_nav === "support") ? 'active' : "")
-    a.nav-link.sidebar__link(href="support.html")
-      img(src=(sidebar_nav === "support") ? "img/img_support-active.svg" : "img/img_support.svg")
-    a.nav-link.sidebar__link(href="support.html") Support
+if isAdmin
+  ul.nav.flex-column.sidebar(id="sidebar")
+    li.d-flex.sidebar__item(class=(sidebar_nav === "home") ? 'active' : "")
+      a.nav-link.sidebar__link(href="home.html")
+        img(src=(sidebar_nav === "home") ? "img/img_home-active.svg" : "img/img_home.svg")
+      a.nav-link.sidebar__link(href="home.html") Home
+    li.d-flex.sidebar__item(class=(sidebar_nav === "trailers") ? 'active' : "")
+      a.nav-link.sidebar__link(href="trailers.html")
+        img(src=(sidebar_nav === "create_account") ? "img/img_trailers-active.svg" : "img/img_trailers.svg")
+      a.nav-link.sidebar__link(href="trailers.html") Trailers Details
+    li.d-flex.sidebar__item(class=(sidebar_nav === "customer") ? 'active' : "")
+      a.nav-link.sidebar__link(href="customer.html")
+        img(src=(sidebar_nav === "customer") ? "img/img_customer-active.svg" : "img/img_customer.svg")
+      a.nav-link.sidebar__link(href="customer.html") Customer
+else
+  ul.nav.flex-column.sidebar(id="sidebar")
+    li.d-flex.sidebar__item(class=(sidebar_nav === "login") ? 'active' : "")
+      a.nav-link.sidebar__link(href="login.html")
+        img(src=(sidebar_nav === "login") ? "img/img_login-active.svg" : "img/img_login.svg")
+      a.nav-link.sidebar__link(href="login.html") Login
+    li.d-flex.sidebar__item(class=(sidebar_nav === "create_account") ? 'active' : "")
+      a.nav-link.sidebar__link(href="create_account.html")
+        img(src=(sidebar_nav === "create_account") ? "img/img_create-active.svg" : "img/img_create.svg")
+      a.nav-link.sidebar__link(href="create_account.html") Create Account
+    li.d-flex.sidebar__item(class=(sidebar_nav === "support") ? 'active' : "")
+      a.nav-link.sidebar__link(href="support.html")
+        img(src=(sidebar_nav === "support") ? "img/img_support-active.svg" : "img/img_support.svg")
+      a.nav-link.sidebar__link(href="support.html") Support
+  
