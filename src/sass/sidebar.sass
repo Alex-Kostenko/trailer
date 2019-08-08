@@ -7,25 +7,25 @@ $nav_background_color: #ebecef
   height: 100%
   padding-top: 100px
   position: fixed
-  width: 0
+  width: 70px
   overflow: hidden
   transition: all 200ms
   z-index: 10
 
-  @include media-breakpoint-up(sm)
-    width: 0
+  // @include media-breakpoint-up(sm)
+  //   width: 0
 
-  @include media-breakpoint-up(md)
-    width: 70px
+  // @include media-breakpoint-up(md)
+  //   width: 70px
 
-  @include media-breakpoint-up(lg)
-    width: 70px
+  // @include media-breakpoint-up(lg)
+  //   width: 70px
 
-  @media(min-width: 1000px)
-    width: 250px
+  // @media(min-width: 1000px)
+  //   width: 250px
 
-  @include media-breakpoint-up(xl)
-    width: 340px
+  // @include media-breakpoint-up(xl)
+  //   width: 340px
 
   &__item
     margin: 0.55rem
@@ -44,11 +44,8 @@ $nav_background_color: #ebecef
       color: $nav_active_link_color
       font-weight: bold
 
-.sidebar-full
-  width: 250px
-
-.sidebar-compact
-  width: 70px
-
-.sidebar-hide
+.sidebar_mobile
   width: 0
+
+.sidebar_open
+  width: 250px
