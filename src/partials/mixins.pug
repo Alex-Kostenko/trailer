@@ -48,8 +48,8 @@ mixin formGroupSearch (type, typeName, name, label, options)
 				if (block)
 					block
 
-mixin FormSelectOption (name, options)
-	select.form-control.form-block__input(name=name, id=name)
+mixin FormSelectOption (name, options, withClass)
+	select.form-control.form-block__input(class=withClass)(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
 

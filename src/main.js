@@ -28,18 +28,22 @@ import "./support_confirm.pug";
     }
   }
 
-  function showSelected(id) {
-    document.getElementById(`${id}-container`).style.display = "block";
+  function removeClasses() {
+    for (let index = 0; index < tablinks.length; index++) {
+      tablinks[index].classList.remove("tab-active");
+    }
+  }
+
+  function showSelected(tablink) {
+    document.getElementById(`${tablink.id}-container`).style.display = "block";
+    removeClasses();
+    tablink.classList.add("tab-active");
   }
 
   for (let index = 0; index < tablinks.length; index++) {
     tablinks[index].addEventListener("click", function() {
       closeAll();
-      showSelected(tablinks[index].id);
-
-      //TODO add active
-      // document.getElementById(tablinks[index]).className.remove(" active", "");
-      // document.getElementById(tablinks[index]).className += " active";
+      showSelected(tablinks[index]);
     });
   }
 

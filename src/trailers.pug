@@ -14,29 +14,29 @@ block content
 			button#Home.tab__links Home
 			button#Detail.tab__links Detail
 
-		//- .offset-lg-3.col-lg-9
-			//- Tab content Home
-		div#Home-container.tab__content.offset-lg-3.col-lg-9
+		//- .offset-lg-3
+		//- Tab content Home
+		div#Home-container.tab__content.offset-lg-3
 			h1.main-header Search For a Trailer
 
 			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', '')
 				.col-lg-5.col-xl-2
-					button.btn.form-group-button.form-group-button-big Find
+					button.btn.form-group-button Find
 			p or
 			+formGroupSearch('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', '')
 				.col-lg-5.col-xl-2
-					button.btn.form-group-button.form-group-button-big Find
+					button.btn.form-group-button Find
 			p or
 			+formGroupSearch('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', '')
 				.col-lg-5.col-xl-2
-					button.btn.form-group-button.form-group-button-big Find
+					button.btn.form-group-button Find
 
 
-			h1.main-header Search For a Trailer by Locations & Business
-			.d-flex
-				+FormSelectOption('bussines',optionsBussines)
-				+FormSelectOption('location',optionsLocation)
-				button.btn.form-group-button.form-group-button-big Find
+				h1.main-header Search For a Trailer by Locations & Business
+				.d-flex.w-100
+					+FormSelectOption('bussines',optionsBussines, 'm-1r')
+					+FormSelectOption('location',optionsLocation, 'm-1r')
+					button.btn.form-group-button.m-1r Find
 
 		//- Tab content Detail
 		div#Detail-container.tab__content
