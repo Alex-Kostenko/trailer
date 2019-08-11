@@ -1,16 +1,16 @@
-mixin formRow ()
+mixin formRow()
 	.form-block.d-flex
 		if block
 			block
 
-mixin formRowWithText ()
+mixin formRowWithText()
 	.form-group.row.form-block.justify-content-left
 		.col-11.col-md-4
 		if block
 			block
 		.col-sm-3
 
-mixin formGroup (type, typeName, name, label, options)
+mixin formGroup(type, typeName, name, label, options)
 	.form-block.d-flex
 		case type
 			when 'select'
@@ -29,7 +29,7 @@ mixin formGroup (type, typeName, name, label, options)
 				if (block)
 					block
 
-mixin formGroupSearch (type, typeName, name, label, options)
+mixin formGroupSearch(type, typeName, name, label, withStyles, options)
 	.form-block.d-flex
 		case type
 			when 'select'
@@ -44,24 +44,80 @@ mixin formGroupSearch (type, typeName, name, label, options)
 				.col-md-5.col-lg-3.col-xl-3.form__row
 					label.form-block__label(for=name)= label
 				.col-md-7.col-lg-4.col-xl-4
-					input.form-control.form-block__input(type=typeName, name=name, id=name)
+					input.form-control.form-block__input(class=withStyles)(type=typeName, name=name, id=name)
 				if (block)
 					block
 
 mixin FormSelectOption (name, options, withClass)
-	select.form-control.form-block__input(class=withClass)(name=name, id=name)
+	select.form-control.form-block__input.styled-select(class=withClass)(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
 
-mixin selectOption (name, options)
+mixin selectOption(name, options)
 	select.form-control.form-block__input.col-12(name=name, id=name)
 		each val, index in options
 			option(value=index, selected=(index == 0))= val
 
-mixin createSidebarMenu (links)
+mixin createSidebarMenu(links)
 	ul.nav.flex-column.sidebar(id="sidebar")
 		each link in links
 			li.d-flex.sidebar__item(class=(sidebar_nav === link.name) ? 'active' : "")
 				a.nav-link.sidebar__link(href=`${link.name}.html`)
 					img.sidebar__img(src=(sidebar_nav === link.name) ? `img/img_${link.name}-active.svg` : `img/img_${link.name}.svg`)
 					= link.title
+
+//- Trailers Details
+mixin trailersDetailRow(text1, text2)
+	.detail__row
+		span= text1
+		span= text2
+
+mixin trailersDocumentsRow(text1, text2)
+	.documents__row
+		.col-xl-3.text-left
+			span= text1
+		.col-xl-2.text-center
+			span= text2
+
+mixin trailersDocumentsRowWithButton(isAvailable, text1, text2, text3, link)
+	if isAvailable
+		.documents__row
+			.col-xl-3.text-left
+				span= text1
+			.col-xl-2.text-center
+				a.main-link(href=link)= text2
+			.col-xl-2.text-center
+				button.btn.main-btn= text3
+	else
+		.documents__row
+			.col-xl-3.text-left
+				span= text1
+			.col-xl-2.text-center
+				a.main-link(href=link)= text2
+			.col-xl-2.text-center
+				span Document Unavailable
+
+mixin trailersDocumentsTableRow(isChecked, text1, text2, text3, link)
+	tr
+		td(scope="row")
+			input(type="checkbox" checked= isChecked)
+		td(scope="row")
+			a.main-link(href=link)= text1
+		td(scope="row")
+			span= text2
+		td(scope="row")
+			span= text3
+		td(scope="row")
+			span= text4
+
+mixin trailersLocationFormRow(isWithInput, labelText_1, inputName_1, selectOptions, labelText_2, inputName_2)
+	.form-block.d-flex
+		.col-md-5.col-lg-3.col-xl-2.form__row
+			label.form-block__label(for=inputName_1)= labelText_1
+		.col-md-7.col-lg-4.col-xl-4
+			+FormSelectOption(inputName_1, selectOptions)
+		if isWithInput
+			.col-md-5.col-lg-3.col-xl-2.form__row
+				label.form-block__label(for=inputName_2)= labelText_2
+			.col-md-7.col-lg-4.col-xl-4
+				input.form-control.form-block__input(type='text', name=inputName_2, id=inputName_2)

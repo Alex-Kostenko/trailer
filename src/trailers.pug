@@ -6,6 +6,8 @@ block vars
 	- var sidebar_nav = "trailers"
 	- var optionsBussines = ['Bussines1', 'Bussines2', 'Bussines3']
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
+	- var optionsTrailerNumber = ['TrailerNumber-1', 'TrailerNumber-2', 'TrailerNumber-3']
+	- var optionsTrailerUnit = ['Unit-1', 'Unit-2', 'Unit-3']
 
 block content
 	.container.content-container
@@ -13,21 +15,23 @@ block content
 		.tab.offset-lg-3.col-lg-9
 			button#Home.tab__links Home
 			button#Detail.tab__links Detail
+			button#Documents.tab__links Documents
+			button#Location.tab__links Location
 
 		//- .offset-lg-3
 		//- Tab content Home
 		div#Home-container.tab__content.offset-lg-3
 			h1.main-header Search For a Trailer
 
-			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', '')
+			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', 'styled-input')
 				.col-lg-5.col-xl-2
 					button.btn.form-group-button Find
 			p or
-			+formGroupSearch('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', '')
+			+formGroupSearch('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', 'styled-input')
 				.col-lg-5.col-xl-2
 					button.btn.form-group-button Find
 			p or
-			+formGroupSearch('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', '')
+			+formGroupSearch('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', 'styled-input')
 				.col-lg-5.col-xl-2
 					button.btn.form-group-button Find
 
@@ -39,6 +43,79 @@ block content
 					button.btn.form-group-button.m-1r Find
 
 		//- Tab content Detail
-		div#Detail-container.tab__content
-			h3 Detail
-			p Detail
+		div#Detail-container.tab__content.offset-lg-3
+			h1.main-header Trailer Record - xxxxxxx
+			.d-flex
+				.detail__col
+					h3.detail__header Equipment Details
+					+trailersDetailRow('Trailer Number', 'Some text')
+					+trailersDetailRow('Make', 'Some text')
+					+trailersDetailRow('Year', 'Some text')
+					+trailersDetailRow('Size', 'Some text')
+					+trailersDetailRow('Location', 'Some text')
+					+trailersDetailRow('Condition Status', 'Some text')
+					+trailersDetailRow('Own', 'Some text')
+					+trailersDetailRow('Business', 'Some text')
+
+				.detail__col.detail__col-grey
+					h3.detail__header Registration Details
+					+trailersDetailRow('Vehicle Identification Number (Vin)', 'Some text')
+					+trailersDetailRow('Platee Number', 'Some text')
+					+trailersDetailRow('State Number', 'Some text')
+					+trailersDetailRow('Title Number', 'Some text')
+					+trailersDetailRow('Last Registration Date', 'Some text')
+					+trailersDetailRow('Registration Expiration Date', 'Some text')
+					+trailersDetailRow('Date Acquired', 'Some text')
+
+				.detail__col
+					h3.detail__header Tracking Details
+					+trailersDetailRow('E Tracking System', 'Some text')
+					+trailersDetailRow('Tracking Number', 'Some text')
+
+		//- Tab content Documents
+		div#Documents-container.tab__content.offset-lg-3
+			h1.main-header Trailer Record - xxxxxxx
+			.documents__col
+				h3.documents__header.col Equipment Details
+				+trailersDocumentsRow('Trailer Number', 'Some text')
+				+trailersDocumentsRow('Vin #', 'Some text')
+				+trailersDocumentsRow('License #', 'Some text')
+				+trailersDocumentsRowWithButton(true, 'Inspection Document', 'View', 'Download', '#')
+				+trailersDocumentsRowWithButton(true, 'FHWA', 'View', 'Download', '#')
+				+trailersDocumentsRowWithButton(false, 'Registration', 'View', '', '#')
+				+trailersDocumentsRowWithButton(false, 'Tracking Installation Sheet', 'View', '', '#')
+
+				h3.documents__header.col Equipment Invoices
+				p.documents__text Click the Invoice number to View the Invoice
+				table.table.table-striped.documents__table
+					thead
+						tr
+							th(scope="col") Download Invoice
+							th(scope="col") Invoice
+							th(scope="col") Invoice Date
+							th(scope="col") Vendor
+							th(scope="col") Total Invoice
+					tbody
+						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+						+trailersDocumentsTableRow(true, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+
+		//- Tab content Location
+		div#Location-container.tab__content.offset-lg-3
+			h1.main-header Edit Trailer Record - xxxxxxx
+			.location__col
+				h3.location__header.col Search for a Single Asset:
+
+				+trailersLocationFormRow(true, 'Trailer Number', 'trailer-number', optionsTrailerNumber, 'Trailer number contains','trailer-number')
+				+trailersLocationFormRow(true, 'Tracking unit ID №', 'trailer-unit', optionsTrailerUnit, 'Tracking unit id № contains','trailer-unit')
+				+trailersLocationFormRow(false, 'Location Name', 'trailer-location', optionsLocation)
+				+trailersLocationFormRow(true, 'Trailer number', 'trailer-number', optionsTrailerNumber, 'Trailer Number contains','trailer-number')
+
+				h3.location__header.col Select Query Type:
+				.location__check
+					input.location__check-input(type="radio" name="showLatestPosition" id="showLatestPosition" value="option1" checked=false)
+					label.location__check-label(for="showLatestPosition") Show latest position
+				.location__btn-group.d-flex
+					button.btn.main-btn.location__btn Display Map
+					button.btn.main-btn.location__btn Display Table
