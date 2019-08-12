@@ -20,6 +20,14 @@ import "./support_confirm.pug";
 
 (function() {
   document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker').datepicker({
+      uiLibrary: 'bootstrap4'
+  })
+  })
+})();
+
+(function() {
+  document.addEventListener("DOMContentLoaded", function(event) {
     var totalLease = document.getElementById("TotalLease").getContext("2d");
     var totalMaintenance = document.getElementById("TotalMaintenance").getContext("2d");
     var totalTrailers = document.getElementById("TotalTrailers").getContext("2d");

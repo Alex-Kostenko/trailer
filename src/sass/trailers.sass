@@ -24,6 +24,13 @@
     padding: 14px 16px
     transition: 0.3s
 
+  &-tmp
+    height: auto
+
+    @include media-breakpoint-up(lg)
+      display: block
+      height: 7rem
+
   &-active
     border-bottom: 3px solid $color
 
@@ -156,10 +163,14 @@
   &__col
     align-items: center
     display: flex
+    flex-direction: column
     justify-content: space-between
     text-align: right
     margin: 1rem
     padding: 0
+
+    @include media-breakpoint-up(lg)
+      flex-direction: row
 
   &__col-canvas
     display: flex
@@ -188,6 +199,30 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
     text-align: center
 
+  &__invoice-input
+    border-radius: 13px
+    padding: 0.375rem 0.75rem
+    background-color: #fff
+    border: 1px solid #ced4da
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+    text-align: center
+    margin: 0 0.83rem
+
+  &__date-wrapper
+    padding: 0.83rem 0
+
+    @include media-breakpoint-up(lg)
+      padding: 0 0.83rem
+
+  &__invoice-date
+    border-radius: 13px
+    padding: 0.375rem 0.75rem
+    background-color: #fff
+    border: 1px solid #ced4da
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+    text-align: center
+    margin: 0
+
   &__label
     margin-bottom: 0
     margin-right: 0.5rem
@@ -198,6 +233,19 @@
     color: #617083
     text-align: right
     padding: 0
+
+  &__invoice-label
+    margin: 0.7rem
+    font-size: 0.93rem
+    line-height: 1.1rem
+    font-weight: bold
+    text-transform: uppercase
+    color: #617083
+    text-align: right
+    padding: 0
+
+    @include media-breakpoint-up(lg)
+      margin: 0
 
   &__doc
     width: 500px

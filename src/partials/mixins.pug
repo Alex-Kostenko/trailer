@@ -144,3 +144,20 @@ mixin trailersFinancialsTableRow(link, linkText, trailerInfos)
 			td(scope="row")
 				span.fs-table= trailerInfo
 
+
+mixin financialsInvoiseFormRowSelect(label, inputName, selectOptions)
+	.financials__col
+		label.financials__invoice-label= label
+		.col-lg-7
+			+FormSelectOption(inputName, selectOptions)
+
+mixin financialsInvoiseFormRowInput(isDisabled, label, inputName)
+	if isDisabled
+		.financials__col
+			label.financials__invoice-label= label
+			input.financials__invoice-input.col-lg-3(type="text", name=inputName, disabled)
+	else
+		.financials__col
+			label.financials__invoice-label= label
+			input.financials__invoice-input.col-lg-5(type="text", name=inputName)
+

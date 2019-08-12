@@ -8,6 +8,7 @@ block vars
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 	- var optionsTrailerNumber = ['TrailerNumber-1', 'TrailerNumber-2', 'TrailerNumber-3']
 	- var optionsTrailerUnit = ['Unit-1', 'Unit-2', 'Unit-3']
+	- var optionsVendor = ['Vendor-1', 'Vendor-2', 'Vendor-3']
 
 block content
 	.container.content-container
@@ -19,7 +20,7 @@ block content
 			button#Location.tab__links Location
 			button#Financials.tab__links Financials
 
-		.tab.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
+		.tab.tab-tmp.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
 			button#FinancialsSearch.tab__links tmp-FinancialsSearch
 			button#FinancialsRepairHistory.tab__links tmp-FinancialsRepairHistory
 			button#FinancialsRepairHistory2.tab__links tmp-FinancialsRepairHistory2
@@ -272,11 +273,26 @@ block content
 			.financials__wrapper
 				.col-12.col-xl-6
 					h1.main-header Input Trailer Expenswe Invoice
-					+trailersDetailRow('YTD - Total Labor', '1500')
-					+trailersDetailRow('YTD - Total Parts', '1500')
-					+trailersDetailRow('YTD - Total Accessories', '1500')
+					form(action="")
+						+financialsInvoiseFormRowSelect('Trailer Number', 'trailer-number', optionsTrailerNumber)
+						+financialsInvoiseFormRowSelect('Vendor Number', 'vendor-number', optionsVendor)
+						+financialsInvoiseFormRowInput(false, 'Invoice Number', 'invoice-number')
+						//- +financialsInvoiseFormRowDate('Invoice Date', 'invoice-date')
+						.financials__col
+							label.financials__invoice-label Invoice Date
+							.col-lg-6.financials__date-wrapper
+								input#datepicker.financials__invoice-date(name='invoice-date')
+						+financialsInvoiseFormRowInput(false, 'Maintenance / PO Number', 'po-number')
+						.financials__col
+							label.financials__invoice-label Load Invoice Document
+							button.default-btn Upload Document
+						button.btn.default-btn(type='submit', disabled) Load Invoice to Profile
+						
 				.col-12.col-xl-6
 					h1.main-header Input Trailer Invoice Detail
-					+trailersDetailRow('YTD - Total Annual Inspections', '1500')
-					+trailersDetailRow('YTD - Total Registrations', '1500')
-					+trailersDetailRow('YTD - YTD - Total Tax', '1500')
+					+financialsInvoiseFormRowInput(true, 'Labor Total', 'labor-total')
+					+financialsInvoiseFormRowInput(true, 'Parts Total', 'parts-total')
+					+financialsInvoiseFormRowInput(true, 'Accessories Total', 'accessories-total')
+					+financialsInvoiseFormRowInput(true, 'Annual Inspection Total', 'inspection-total')
+					+financialsInvoiseFormRowInput(true, 'Registration Total', 'registration-total')
+					+financialsInvoiseFormRowInput(true, 'Tax Total', 'tax-total')
