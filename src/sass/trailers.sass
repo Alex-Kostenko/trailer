@@ -1,8 +1,14 @@
 .tab
   width: 100%
-  height: 3.3rem
+  height: auto
+  display: flex
+  flex-direction: column
   background: inherit
   border-bottom: 1px solid #C4C4C4
+
+  @include media-breakpoint-up(lg)
+    display: block
+    height: 3.3rem
 
   &:focus
     outline: 0
@@ -30,7 +36,36 @@
     display: none
     padding: 0.33rem 0.66rem
 
+.home
+
+  &__select
+    margin: 1rem 0
+
+    @include media-breakpoint-up(lg)
+      margin: 1rem
+
+  &__btn
+    margin: 1rem 0
+
+    @include media-breakpoint-up(lg)
+      margin: 1rem
+
+  &__select-block
+    display: flex
+    width: 100%
+    flex-direction: column
+
+    @include media-breakpoint-up(lg)
+      flex-direction: row
+
 .detail
+  &__wrapper
+    display: flex
+    flex-direction: column
+
+    @include media-breakpoint-up(xl)
+      flex-direction: row
+
   &__header
     font-weight: bold
     font-size: 1.55rem
@@ -70,7 +105,10 @@
     padding: 0.5rem 0
 
   &__col
-    padding: 1rem
+    padding: 0
+
+    @include media-breakpoint-up(lg)
+      padding: 1rem
 
     &-grey
       background-color: #F4F5F9
@@ -105,6 +143,65 @@
     border-color: $color
     padding: 0.375rem 2rem
     margin: 0.5rem
+
+  &__btn-group
+    display: flex
+    flex-direction: column
+
+    @include media-breakpoint-up(lg)
+      flex-direction: row
+
+.financials
+
+  &__col
+    align-items: center
+    display: flex
+    justify-content: space-between
+    text-align: right
+    margin: 1rem
+    padding: 0
+
+  &__col-canvas
+    display: flex
+
+  &__wrapper
+    display: flex
+    flex-direction: column
+
+    @include media-breakpoint-up(xl)
+      flex-direction: row
+
+  &__col-form
+    display: flex
+    flex-direction: column
+
+  &__chart
+    margin: 1rem
+    width: 275px !important
+    height: 235px !important
+
+  &__input
+    border-radius: 13px
+    padding: 0.375rem 0.75rem
+    background-color: #fff
+    border: 1px solid #ced4da
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+    text-align: center
+
+  &__label
+    margin-bottom: 0
+    margin-right: 0.5rem
+    font-size: 0.93rem
+    line-height: 1.1rem
+    font-weight: bold
+    text-transform: uppercase
+    color: #617083
+    text-align: right
+    padding: 0
+
+  &__doc
+    width: 500px
+    height: 300px
 
 @keyframes fadeEffect
   from

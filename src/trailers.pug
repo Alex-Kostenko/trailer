@@ -12,15 +12,21 @@ block vars
 block content
 	.container.content-container
 		//- Tab links
-		.tab.offset-lg-3.col-lg-9
+		.tab.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
 			button#Home.tab__links Home
 			button#Detail.tab__links Detail
 			button#Documents.tab__links Documents
 			button#Location.tab__links Location
+			button#Financials.tab__links Financials
 
-		//- .offset-lg-3
+		.tab.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
+			button#FinancialsSearch.tab__links tmp-FinancialsSearch
+			button#FinancialsRepairHistory.tab__links tmp-FinancialsRepairHistory
+			button#FinancialsRepairHistory2.tab__links tmp-FinancialsRepairHistory2
+			button#FinancialsInvoice.tab__links tmp-FinancialsInvoice
+
 		//- Tab content Home
-		div#Home-container.tab__content.offset-lg-3
+		div#Home-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Search For a Trailer
 
 			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', 'styled-input')
@@ -37,15 +43,15 @@ block content
 
 
 				h1.main-header Search For a Trailer by Locations & Business
-				.d-flex.w-100
-					+FormSelectOption('bussines',optionsBussines, 'm-1r')
-					+FormSelectOption('location',optionsLocation, 'm-1r')
-					button.btn.form-group-button.m-1r Find
+				.home__select-block
+					+FormSelectOption('bussines',optionsBussines, 'home__select')
+					+FormSelectOption('location',optionsLocation, 'home__select')
+					button.btn.form-group-button.home__btn Find
 
 		//- Tab content Detail
-		div#Detail-container.tab__content.offset-lg-3
+		div#Detail-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Trailer Record - xxxxxxx
-			.d-flex
+			.detail__wrapper
 				.detail__col
 					h3.detail__header Equipment Details
 					+trailersDetailRow('Trailer Number', 'Some text')
@@ -73,7 +79,7 @@ block content
 					+trailersDetailRow('Tracking Number', 'Some text')
 
 		//- Tab content Documents
-		div#Documents-container.tab__content.offset-lg-3
+		div#Documents-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Trailer Record - xxxxxxx
 			.documents__col
 				h3.documents__header.col Equipment Details
@@ -90,11 +96,11 @@ block content
 				table.table.table-striped.documents__table
 					thead
 						tr
-							th(scope="col") Download Invoice
-							th(scope="col") Invoice
-							th(scope="col") Invoice Date
-							th(scope="col") Vendor
-							th(scope="col") Total Invoice
+							th.fs-table(scope="col") Download Invoice
+							th.fs-table(scope="col") Invoice
+							th.fs-table(scope="col") Invoice Date
+							th.fs-table(scope="col") Vendor
+							th.fs-table(scope="col") Total Invoice
 					tbody
 						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
 						+trailersDocumentsTableRow(true, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
@@ -102,7 +108,7 @@ block content
 						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
 
 		//- Tab content Location
-		div#Location-container.tab__content.offset-lg-3
+		div#Location-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Edit Trailer Record - xxxxxxx
 			.location__col
 				h3.location__header.col Search for a Single Asset:
@@ -117,11 +123,11 @@ block content
 					input.location__check-input(type="radio" name="showLatestPosition" id="showLatestPosition" value="option1" checked=false)
 					label.location__check-label(for="showLatestPosition") Show latest position
 				.location__btn-group.d-flex
-					button#Map.btn.main-btn.location__btn.tab__links Display Map
-					button#Table.btn.main-btn.location__btn.tab__links Display Table
+					button#Map.default-btn.tab__links Display Map
+					button#Table.tab__links.default-btn Display Table
 
 		//- Tab content Location Map
-		div#Map-container.tab__content.offset-lg-3
+		div#Map-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Edit Trailer Record - xxxxxxx
 			.location__col
 				div.map-responsive
@@ -131,23 +137,146 @@ block content
 				table.table.table-striped.location__table
 					thead
 						tr
-							th(scope="col") Select Trailer
-							th(scope="col") Map ID
-							th(scope="col") Trailer №
-							th(scope="col") Tracking Unit №
-							th(scope="col") Latitude
-							th(scope="col") Longitude
-							th(scope="col") Closest Landmark
-							th(scope="col") State
-							th(scope="col") Country
-							th(scope="col") Distance From Landmark
-							th(scope="col") Battery Status
+							th.fs-table(scope="col") Select Trailer
+							th.fs-table(scope="col") Map ID
+							th.fs-table(scope="col") Trailer №
+							th.fs-table(scope="col") Tracking Unit №
+							th.fs-table(scope="col") Latitude
+							th.fs-table(scope="col") Longitude
+							th.fs-table(scope="col") Closest Landmark
+							th.fs-table(scope="col") State
+							th.fs-table(scope="col") Country
+							th.fs-table(scope="col") Distance From Landmark
+							th.fs-table(scope="col") Battery Status
 					tbody
 						+trailersLocationTableRow(false, [1, '1234M', 5465, 35.27555, -80.88088, 'Masuer Charlotte', 'NC', 'US', '0.13 mi', 'Excellent'])
 
 		//- Tab content Location Table
-		div#Table-container.tab__content.offset-lg-3
+		div#Table-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Edit Trailer Record - xxxxxxx
 			.location__col
 				h3.location__header.col Table
 
+		//- Tab content Financials
+		div#Financials-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header All Trailers
+			.home__select-block
+					+FormSelectOption('bussines',optionsBussines, 'home__select')
+					+FormSelectOption('location',optionsLocation, 'home__select')
+					+FormSelectOption('location',optionsTrailerNumber, 'home__select')
+					
+
+			.financials__wrapper
+				.financials__col-canvas.row
+						canvas#TotalLease.financials__chart
+						canvas#TotalMaintenance.financials__chart
+						canvas#TotalTrailers.financials__chart
+				.financials__col-form.col-12.col-xl-5
+					h3.financials__header Trailer Financials (YTD)
+					+financialsFormRow('Total Lease Expence (All Locations)', '2500')
+					+financialsFormRow('Total Maintenance Expense (All Locations)', '2500')
+					+financialsFormRow('Total Trailer Count Lease & Owned (All Locations)', '2500')
+			
+
+
+		//- Tab content FinancialsSearch
+		div#FinancialsSearch-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header Search For Trailer Repair History
+			
+			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', 'styled-input')
+				.col-lg-5.col-xl-2
+					button.default-btn Find
+			p or
+			+formGroupSearch('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', 'styled-input')
+				.col-lg-5.col-xl-2
+					button.default-btn Find
+			p or
+			+formGroupSearch('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', 'styled-input')
+				.col-lg-5.col-xl-2
+					button.default-btn Find
+
+		//- Tab content FinancialsRepairHistory
+		div#FinancialsRepairHistory-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header Trailer Repair History
+			h3.financials__header Equipment Details
+			.financials__wrapper
+				.col-12.col-xl-6
+					+trailersDetailRow('YTD - Total Labor', '1500')
+					+trailersDetailRow('YTD - Total Parts', '1500')
+					+trailersDetailRow('YTD - Total Accessories', '1500')
+				.col-12.col-xl-6
+					+trailersDetailRow('YTD - Total Annual Inspections', '1500')
+					+trailersDetailRow('YTD - Total Registrations', '1500')
+					+trailersDetailRow('YTD - YTD - Total Tax', '1500')
+
+			.location__btn-group
+				button.default-btn Download Header CSV
+				button.default-btn Download Line Item CSV
+
+
+			table.table.table-striped.location__table
+				thead
+					tr
+						th.fs-table(scope="col") View Invoice
+						th.fs-table(scope="col") Invoice №
+						th.fs-table(scope="col") Invoice Date
+						th.fs-table(scope="col") Vendor
+						th.fs-table(scope="col") Labar Total
+						th.fs-table(scope="col") Parts Total
+						th.fs-table(scope="col") Accessories Total
+						th.fs-table(scope="col") Annual Inspections Total
+						th.fs-table(scope="col") Registration
+						th.fs-table(scope="col") Tax
+						th.fs-table(scope="col") Total Invoice
+				tbody
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+
+		//- Tab content FinancialsRepairHistory2
+		div#FinancialsRepairHistory2-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header Trailer Repair History
+			
+			.location__btn-group
+				button.default-btn Download Header CSV
+				button.default-btn Download Line Item CSV
+
+
+			table.table.table-striped.location__table
+				thead
+					tr
+						th.fs-table(scope="col") View Invoice
+						th.fs-table(scope="col") Invoice №
+						th.fs-table(scope="col") Invoice Date
+						th.fs-table(scope="col") Vendor
+						th.fs-table(scope="col") Labar Total
+						th.fs-table(scope="col") Parts Total
+						th.fs-table(scope="col") Accessories Total
+						th.fs-table(scope="col") Annual Inspections Total
+						th.fs-table(scope="col") Registration
+						th.fs-table(scope="col") Tax
+						th.fs-table(scope="col") Total Invoice
+				tbody
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+					+trailersFinancialsTableRow('#', 'F11356', ['F11356', '7/25/2019', 'E&J Truck Service', '1233', '50', '0', '0', '0', '150', '1450'])
+
+			div.img.text-center
+				img.financials__doc(src="#")
+
+		//- Tab content FinancialsInvoice
+		div#FinancialsInvoice-container.tab__content.offset-md-1.offset-xl-3
+			
+			.financials__wrapper
+				.col-12.col-xl-6
+					h1.main-header Input Trailer Expenswe Invoice
+					+trailersDetailRow('YTD - Total Labor', '1500')
+					+trailersDetailRow('YTD - Total Parts', '1500')
+					+trailersDetailRow('YTD - Total Accessories', '1500')
+				.col-12.col-xl-6
+					h1.main-header Input Trailer Invoice Detail
+					+trailersDetailRow('YTD - Total Annual Inspections', '1500')
+					+trailersDetailRow('YTD - Total Registrations', '1500')
+					+trailersDetailRow('YTD - YTD - Total Tax', '1500')

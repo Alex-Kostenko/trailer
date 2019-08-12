@@ -74,58 +74,73 @@ mixin trailersDetailRow(text1, text2)
 
 mixin trailersDocumentsRow(text1, text2)
 	.documents__row
-		.col-xl-3.text-left
+		.col-4.col-xl-3.text-left
 			span= text1
-		.col-xl-2.text-center
+		.col-4.col-xl-2.text-center
 			span= text2
 
 mixin trailersDocumentsRowWithButton(isAvailable, text1, text2, text3, link)
 	if isAvailable
 		.documents__row
-			.col-xl-3.text-left
+			.col-4.col-xl-3.text-left
 				span= text1
-			.col-xl-2.text-center
+			.col-4.col-xl-2.text-center
 				a.main-link(href=link)= text2
-			.col-xl-2.text-center
+			.col-3.col-xl-2.text-center
 				button.btn.main-btn= text3
 	else
 		.documents__row
-			.col-xl-3.text-left
+			.col-4.col-xl-3.text-left
 				span= text1
-			.col-xl-2.text-center
+			.col-4.col-xl-2.text-center
 				a.main-link(href=link)= text2
-			.col-xl-2.text-center
+			.col-3.col-xl-2.text-center
 				span Document Unavailable
 
 mixin trailersDocumentsTableRow(isChecked, text1, text2, text3, link)
 	tr
-		td(scope="row")
+		td(scope="row").fs-table
 			input(type="checkbox" checked= isChecked)
 		td(scope="row")
-			a.main-link(href=link)= text1
+			a.fs-table.main-link(href=link)= text1
 		td(scope="row")
-			span= text2
+			span.fs-table= text2
 		td(scope="row")
-			span= text3
+			span.fs-table= text3
 		td(scope="row")
-			span= text4
+			span.fs-table= text4
 
 mixin trailersLocationTableRow(isChecked, trailerInfos)
 	tr
-	td(scope="row")
-			input(type="checkbox" checked= isChecked)
-	each trailerInfo in trailerInfos
-		td(scope="row")
-			span= trailerInfo
+		td(scope="row").fs-table
+				input(type="checkbox" checked= isChecked)
+		each trailerInfo in trailerInfos
+			td(scope="row")
+				span.fs-table= trailerInfo
 
 mixin trailersLocationFormRow(isWithInput, labelText_1, inputName_1, selectOptions, labelText_2, inputName_2)
 	.form-block.d-flex
-		.col-md-5.col-lg-3.col-xl-2.form__row
+		.col-md-5.col-lg-4.col-xl-2.form__row
 			label.form-block__label(for=inputName_1)= labelText_1
-		.col-md-7.col-lg-4.col-xl-4
+		.col-md-7.col-lg-5.col-xl-4
 			+FormSelectOption(inputName_1, selectOptions)
 		if isWithInput
-			.col-md-5.col-lg-3.col-xl-2.form__row
+			.col-md-5.col-lg-4.col-xl-2.form__row
 				label.form-block__label(for=inputName_2)= labelText_2
-			.col-md-7.col-lg-4.col-xl-4
+			.col-md-7.col-lg-5.col-xl-4
 				input.form-control.form-block__input(type='text', name=inputName_2, id=inputName_2)
+
+mixin financialsFormRow(label, value)
+	.financials__col
+		label.financials__label= label
+		input.financials__input.col-3(type="text", disabled, value=value)
+
+
+mixin trailersFinancialsTableRow(link, linkText, trailerInfos)
+	tr
+		td(scope="row")
+			a.fs-table(href=link)= linkText
+		each trailerInfo in trailerInfos
+			td(scope="row")
+				span.fs-table= trailerInfo
+
