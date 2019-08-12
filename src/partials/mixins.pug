@@ -110,6 +110,14 @@ mixin trailersDocumentsTableRow(isChecked, text1, text2, text3, link)
 		td(scope="row")
 			span= text4
 
+mixin trailersLocationTableRow(isChecked, trailerInfos)
+	tr
+	td(scope="row")
+			input(type="checkbox" checked= isChecked)
+	each trailerInfo in trailerInfos
+		td(scope="row")
+			span= trailerInfo
+
 mixin trailersLocationFormRow(isWithInput, labelText_1, inputName_1, selectOptions, labelText_2, inputName_2)
 	.form-block.d-flex
 		.col-md-5.col-lg-3.col-xl-2.form__row

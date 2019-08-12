@@ -117,5 +117,37 @@ block content
 					input.location__check-input(type="radio" name="showLatestPosition" id="showLatestPosition" value="option1" checked=false)
 					label.location__check-label(for="showLatestPosition") Show latest position
 				.location__btn-group.d-flex
-					button.btn.main-btn.location__btn Display Map
-					button.btn.main-btn.location__btn Display Table
+					button#Map.btn.main-btn.location__btn.tab__links Display Map
+					button#Table.btn.main-btn.location__btn.tab__links Display Table
+
+		//- Tab content Location Map
+		div#Map-container.tab__content.offset-lg-3
+			h1.main-header Edit Trailer Record - xxxxxxx
+			.location__col
+				div.map-responsive
+					iframe(src="https://www.google.com/maps/embed/v1/view?zoom=10&center=50.4501,30.5234", width='100%' frameborder="1", allowfullscreen)
+				button.btn.main-btn.location__btn Download CSV
+
+				table.table.table-striped.location__table
+					thead
+						tr
+							th(scope="col") Select Trailer
+							th(scope="col") Map ID
+							th(scope="col") Trailer №
+							th(scope="col") Tracking Unit №
+							th(scope="col") Latitude
+							th(scope="col") Longitude
+							th(scope="col") Closest Landmark
+							th(scope="col") State
+							th(scope="col") Country
+							th(scope="col") Distance From Landmark
+							th(scope="col") Battery Status
+					tbody
+						+trailersLocationTableRow(false, [1, '1234M', 5465, 35.27555, -80.88088, 'Masuer Charlotte', 'NC', 'US', '0.13 mi', 'Excellent'])
+
+		//- Tab content Location Table
+		div#Table-container.tab__content.offset-lg-3
+			h1.main-header Edit Trailer Record - xxxxxxx
+			.location__col
+				h3.location__header.col Table
+
