@@ -3,11 +3,14 @@ extends partials/layout
 block vars
 	- var isAdmin = true
 	- var title = "Trailer - Trailers Details"
+	- var navigation = "details-home"
 	- var sidebar_nav = "trailers"
 	- var optionsBussines = ['Bussines1', 'Bussines2', 'Bussines3']
 	- var optionsLocation = ['Location1', 'Location2', 'Location3']
 	- var optionsTrailerNumber = ['TrailerNumber-1', 'TrailerNumber-2', 'TrailerNumber-3']
 	- var optionsTrailerUnit = ['Unit-1', 'Unit-2', 'Unit-3']
+	- var optionsVendor = ['Vendor-1', 'Vendor-2', 'Vendor-3']
+	- var optionsCombo = ['Combo-1', 'Combo-2', 'Combo-3']
 
 block content
 	.container.content-container
@@ -19,7 +22,9 @@ block content
 			button#Location.tab__links Location
 			button#Financials.tab__links Financials
 
-		.tab.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
+		.tab.tab-tmp.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
+			button#DetailEdit.tab__links tmp-DetailEdit
+			button#DetailNew.tab__links tmp-DetailNew
 			button#FinancialsSearch.tab__links tmp-FinancialsSearch
 			button#FinancialsRepairHistory.tab__links tmp-FinancialsRepairHistory
 			button#FinancialsRepairHistory2.tab__links tmp-FinancialsRepairHistory2
@@ -29,24 +34,73 @@ block content
 		div#Home-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Search For a Trailer
 
+			//- form(action="")
 			+formGroupSearch('input', 'text', 'trailer-number', 'Enter trailer number', 'styled-input')
 				.col-lg-5.col-xl-2
-					button.btn.form-group-button Find
-			p or
+					button#Home_result.tab__links.default-btn Find
+			p Or
 			+formGroupSearch('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', 'styled-input')
 				.col-lg-5.col-xl-2
-					button.btn.form-group-button Find
-			p or
+					button#Home_result.tab__links.default-btn Find
+			p Or
 			+formGroupSearch('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', 'styled-input')
 				.col-lg-5.col-xl-2
-					button.btn.form-group-button Find
+					button#Home_result.tab__links.default-btn Find
 
 
-				h1.main-header Search For a Trailer by Locations & Business
-				.home__select-block
-					+FormSelectOption('bussines',optionsBussines, 'home__select')
-					+FormSelectOption('location',optionsLocation, 'home__select')
-					button.btn.form-group-button.home__btn Find
+			h1.main-header Search For a Trailer by Locations & Business
+			.home__select-block
+				+FormSelectOption('bussines', optionsBussines, 'home__select')
+				+FormSelectOption('location', optionsLocation, 'home__select')
+				button#Home_result.tab__links.default-btn Find
+
+
+		//- Tab content Home search-result
+		div#Home_result-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header Search Results - Business xxxxxxxx, Location xxxxxx
+
+			.home-search__wrapper
+				.col-12.col-xl-6
+					h3.sub-header Refine Search For a Trailer
+					+formGroupSearchResult('input', 'text', 'trailer-number', 'Enter trailer number', '')
+						.col-lg-5.col-xl-3
+							button#Home_result.tab__links.default-btn.home-search__result-btn Find
+					p Or
+					+formGroupSearchResult('input', 'text', 'trailer-vin-number', 'Enter trailer vin number', '')
+						.col-lg-5.col-xl-2
+							button#Home_result.tab__links.default-btn Find
+					p Or
+					+formGroupSearchResult('input', 'text', 'trailer-tracking-number', 'Enter trailer tracking number', '')
+						.col-lg-5.col-xl-2
+							button#Home_result.tab__links.default-btn Find
+
+				.col-12.col-xl-6.home-search__col
+					h3.sub-header Refine Search by Location & Business
+
+					.home-search__block
+						+FormSelectOption('bussines', optionsBussines, 'mr-1')
+						+FormSelectOption('location', optionsLocation, '')
+					button#Home_result.tab__links.default-btn Find
+
+			table.table.table-striped.documents__table.w-100
+				thead
+					tr
+						th.fs-table(scope="col") Trailer Number
+						th.fs-table(scope="col") Location
+						th.fs-table(scope="col") Business
+						th.fs-table(scope="col") Make
+						th.fs-table(scope="col") Vin
+						th.fs-table(scope="col") Year
+						th.fs-table(scope="col") License Plate
+						th.fs-table(scope="col") Registartion
+						th.fs-table(scope="col") Expiration Date
+						th.fs-table(scope="col") Tracking Number
+				tbody
+					+trailersFinancialsTableRow('#', '405', ['Mason', 'Metals', 'Busse', 'Vin12 kal109', '2005', 'GKS 19032', '12 31/2019','12 31/2019', '1234567'])
+					+trailersFinancialsTableRow('#', '405', ['Mason', 'Metals', 'Busse', 'Vin12 kal109', '2005', 'GKS 19032', '12 31/2019','12 31/2019', '1234567'])
+					+trailersFinancialsTableRow('#', '405', ['Mason', 'Metals', 'Busse', 'Vin12 kal109', '2005', 'GKS 19032', '12 31/2019','12 31/2019', '1234567'])
+					+trailersFinancialsTableRow('#', '405', ['Mason', 'Metals', 'Busse', 'Vin12 kal109', '2005', 'GKS 19032', '12 31/2019','12 31/2019', '1234567'])
+
 
 		//- Tab content Detail
 		div#Detail-container.tab__content.offset-md-1.offset-xl-3
@@ -78,6 +132,92 @@ block content
 					+trailersDetailRow('E Tracking System', 'Some text')
 					+trailersDetailRow('Tracking Number', 'Some text')
 
+		//- Tab content Detail Edit
+		div#DetailEdit-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header Edit Trailer Record - xxxxxxx
+			.detail__wrapper
+				.detail__col
+					h3.detail__header Equipment Details
+					+trailersDetailRowEdit('Trailer Number', 'trailer-number')
+					+trailersDetailRowSelect('Make', 'make', optionsCombo)
+					+trailersDetailRowSelect('Year', 'year', optionsCombo)
+					+trailersDetailRowSelect('Size', 'size', optionsCombo)
+					+trailersDetailRowSelect('Location', 'location', optionsCombo)
+					+trailersDetailRowSelect('Condition Status', 'condition-status', optionsCombo)
+					+trailersDetailRowSelect('Own', 'own', optionsCombo)
+					+trailersDetailRowSelect('Business', 'business', optionsCombo)
+					
+				.detail__col.detail__col-grey
+					h3.detail__header Registration Details
+					+trailersDetailRowEdit('Vehicle Identification Number (Vin)', 'vehicle-number')
+					+trailersDetailRowEdit('Platee Number', 'platee-number')
+					+trailersDetailRowSelect('State Number', 'state-number', optionsCombo)
+					+trailersDetailRowEdit('Title Number', 'title-number')
+					.detail__row
+						span Last Registration Date
+						.col-lg-6.financials__date-wrapper
+							input#datepicker-invoice.detail__date(name='invoice-date')
+					.detail__row
+						span Registration Expiration Date
+						.col-lg-6.financials__date-wrapper
+							input#datepicker-expiration.detail__date(name='expiration-date')
+					.detail__row
+						span Date Acquired
+						.col-lg-6.financials__date-wrapper
+							input#datepicker-acquired.detail__date(name='acquired-date')
+
+
+				.detail__col
+					h3.detail__header Tracking Details
+					+trailersDetailRowSelect('E Tracking System', 'tracking-system', optionsCombo)
+					+trailersDetailRowEdit('Tracking Number', 'tracking-number')
+
+			button.default-btn Find
+
+
+		//- Tab content Detail Create New
+		div#DetailNew-container.tab__content.offset-md-1.offset-xl-3
+			h1.main-header Edit Trailer Record - xxxxxxx
+			.detail__wrapper
+				.detail__col
+					h3.detail__header Equipment Details
+					+trailersDetailRowEdit('Trailer Number', 'trailer-number')
+					+trailersDetailRowSelect('Make', 'make', optionsCombo)
+					+trailersDetailRowSelect('Year', 'year', optionsCombo)
+					+trailersDetailRowSelect('Size', 'size', optionsCombo)
+					+trailersDetailRowSelect('Location', 'location', optionsCombo)
+					+trailersDetailRowSelect('Condition Status', 'condition-status', optionsCombo)
+					+trailersDetailRowSelect('Own', 'own', optionsCombo)
+					+trailersDetailRowSelect('Business', 'business', optionsCombo)
+					
+				.detail__col.detail__col-grey
+					h3.detail__header Registration Details
+					+trailersDetailRowEdit('Vehicle Identification Number (Vin)', 'vehicle-number')
+					+trailersDetailRowEdit('Platee Number', 'platee-number')
+					+trailersDetailRowSelect('State Number', 'state-number', optionsCombo)
+					+trailersDetailRowEdit('Title Number', 'title-number')
+					.detail__row
+						span Last Registration Date
+						.col-lg-6.financials__date-wrapper
+							input#datepicker-invoice.detail__date(name='invoice-date')
+					.detail__row
+						span Registration Expiration Date
+						.col-lg-6.financials__date-wrapper
+							input#datepicker-expiration.detail__date(name='expiration-date')
+					.detail__row
+						span Date Acquired
+						.col-lg-6.financials__date-wrapper
+							input#datepicker-acquired.detail__date(name='acquired-date')
+
+
+				.detail__col
+					h3.detail__header Tracking Details
+					+trailersDetailRowSelect('E Tracking System', 'tracking-system', optionsCombo)
+					+trailersDetailRowEdit('Tracking Number', 'tracking-number')
+
+			button.default-btn Find
+
+
 		//- Tab content Documents
 		div#Documents-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Trailer Record - xxxxxxx
@@ -93,6 +233,7 @@ block content
 
 				h3.documents__header.col Equipment Invoices
 				p.documents__text Click the Invoice number to View the Invoice
+
 				table.table.table-striped.documents__table
 					thead
 						tr
@@ -272,11 +413,25 @@ block content
 			.financials__wrapper
 				.col-12.col-xl-6
 					h1.main-header Input Trailer Expenswe Invoice
-					+trailersDetailRow('YTD - Total Labor', '1500')
-					+trailersDetailRow('YTD - Total Parts', '1500')
-					+trailersDetailRow('YTD - Total Accessories', '1500')
+					form(action="")
+						+financialsInvoiseFormRowSelect('Trailer Number', 'trailer-number', optionsTrailerNumber)
+						+financialsInvoiseFormRowSelect('Vendor Number', 'vendor-number', optionsVendor)
+						+financialsInvoiseFormRowInput(false, 'Invoice Number', 'invoice-number')
+						.financials__col
+							label.financials__invoice-label Invoice Date
+							.col-lg-6.financials__date-wrapper
+								input#datepicker.financials__invoice-date(name='invoice-date')
+						+financialsInvoiseFormRowInput(false, 'Maintenance / PO Number', 'po-number')
+						.financials__col
+							label.financials__invoice-label Load Invoice Document
+							button.default-btn Upload Document
+						button.btn.default-btn(type='submit', disabled) Load Invoice to Profile
+						
 				.col-12.col-xl-6
 					h1.main-header Input Trailer Invoice Detail
-					+trailersDetailRow('YTD - Total Annual Inspections', '1500')
-					+trailersDetailRow('YTD - Total Registrations', '1500')
-					+trailersDetailRow('YTD - YTD - Total Tax', '1500')
+					+financialsInvoiseFormRowInput(true, 'Labor Total', 'labor-total')
+					+financialsInvoiseFormRowInput(true, 'Parts Total', 'parts-total')
+					+financialsInvoiseFormRowInput(true, 'Accessories Total', 'accessories-total')
+					+financialsInvoiseFormRowInput(true, 'Annual Inspection Total', 'inspection-total')
+					+financialsInvoiseFormRowInput(true, 'Registration Total', 'registration-total')
+					+financialsInvoiseFormRowInput(true, 'Tax Total', 'tax-total')

@@ -1,19 +1,31 @@
 extends partials/layout
 
 block vars
+	- var navigation = "home"
+	- var sidebar_nav = "home"
 	- var isAdmin = true
 	- var title = "Trailer - Home"
-	- var sidebar_nav = "home"
 
 block content
 	.container.content-container
-		.offset-lg-3.col-lg-9
-			h1.main-header Reporting Locations
+		.offset-md-1.offset-xl-3.home__wrapper
+			.col-12.col-xl-4
+				h1.main-header Reporting Locations
 
-		.offset-lg-3.col-lg-3
-			+formRow()
-				+selectOption('bussines', ['bussines1', 'bussines2', 'bussines3'])
-			+formRow()
-				+selectOption('location', ['location1', 'location2', 'location3'])
-			div.map-responsive
-				iframe(src="https://www.google.com/maps/embed/v1/view?zoom=10&center=50.4501,30.5234", frameborder="1", allowfullscreen)
+				.home__row
+					+selectOption('bussines', ['bussines1', 'bussines2', 'bussines3'])
+				.home__row
+					+selectOption('location', ['location1', 'location2', 'location3'])
+				div.map-responsive
+					iframe.w-100(src="https://www.google.com/maps/embed/v1/view?zoom=10&center=50.4501,30.5234", frameborder="1", allowfullscreen)
+
+			.col-12.col-xl-7
+					h1.main-header Trailer details
+					+homeFormRowInput(true, 'Total Trailers (All Locations)', 'trailers-total', 2500)
+					+homeFormRowInput(true, 'Subtotal Trailers Owned (all Locations)', 'trailers-subtotal-owned', 2500)
+					+homeFormRowInput(true, 'Subtotal Trailers Leased (All Locations)', 'trailers-subtotal-leased', 2500)
+
+					h1.main-header Trailer Financials
+					+homeFormRowInput(true, 'Total Lease Expence (All Locations)', 'lease-total', 2500)
+					+homeFormRowInput(true, 'Total Maintenance Expense (All Locations)', 'maintenance-total', 2500)
+				
