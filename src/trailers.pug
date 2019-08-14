@@ -23,12 +23,12 @@ block content
 			button#Financials.tab__links Financials
 
 		.tab.tab-tmp.offset-md-1.offset-xl-3.col-lg-11.col-xl-9
-			button#DetailEdit.tab__links tmp-DetailEdit
-			button#DetailNew.tab__links tmp-DetailNew
-			button#FinancialsSearch.tab__links tmp-FinancialsSearch
-			button#FinancialsRepairHistory.tab__links tmp-FinancialsRepairHistory
-			button#FinancialsRepairHistory2.tab__links tmp-FinancialsRepairHistory2
-			button#FinancialsInvoice.tab__links tmp-FinancialsInvoice
+			button#DetailEdit.tab__links tmp-D-Edit
+			button#DetailNew.tab__links tmp-D-New
+			button#FinancialsSearch.tab__links tmp-F-Search
+			button#FinancialsRepairHistory.tab__links tmp-F-RepairHistory
+			button#FinancialsRepairHistory2.tab__links tmp-F-RepairHistory2
+			button#FinancialsInvoice.tab__links tmp-F-Invoice
 
 		//- Tab content Home
 		div#Home-container.tab__content.offset-md-1.offset-xl-3
@@ -199,15 +199,15 @@ block content
 					.detail__row
 						span Last Registration Date
 						.col-lg-6.financials__date-wrapper
-							input#datepicker-invoice.detail__date(name='invoice-date')
+							input#datepicker_new-invoice.detail__date(name='invoice-date')
 					.detail__row
 						span Registration Expiration Date
 						.col-lg-6.financials__date-wrapper
-							input#datepicker-expiration.detail__date(name='expiration-date')
+							input#datepicker_new-expiration.detail__date(name='expiration-date')
 					.detail__row
 						span Date Acquired
 						.col-lg-6.financials__date-wrapper
-							input#datepicker-acquired.detail__date(name='acquired-date')
+							input#datepicker_new-acquired.detail__date(name='acquired-date')
 
 
 				.detail__col
@@ -221,32 +221,38 @@ block content
 		//- Tab content Documents
 		div#Documents-container.tab__content.offset-md-1.offset-xl-3
 			h1.main-header Trailer Record - xxxxxxx
-			.documents__col
-				h3.documents__header.col Equipment Details
-				+trailersDocumentsRow('Trailer Number', 'Some text')
-				+trailersDocumentsRow('Vin #', 'Some text')
-				+trailersDocumentsRow('License #', 'Some text')
-				+trailersDocumentsRowWithButton(true, 'Inspection Document', 'View', 'Download', '#')
-				+trailersDocumentsRowWithButton(true, 'FHWA', 'View', 'Download', '#')
-				+trailersDocumentsRowWithButton(false, 'Registration', 'View', '', '#')
-				+trailersDocumentsRowWithButton(false, 'Tracking Installation Sheet', 'View', '', '#')
+			.detail__wrapper
+				.location__col.col-6
+					h3.documents__header.col Equipment Details
+					+trailersDocumentsRow('Trailer Number', 'Some text')
+					+trailersDocumentsRow('Vin #', 'Some text')
+					+trailersDocumentsRow('License #', 'Some text')
+					+trailersDocumentsRowWithButton(true, 'Inspection Document', 'View', 'Download', '#')
+					+trailersDocumentsRowWithButton(true, 'FHWA', 'View', 'Download', '#')
+					+trailersDocumentsRowWithButton(false, 'Registration', 'View', '', '#')
+					+trailersDocumentsRowWithButton(false, 'Tracking Installation Sheet', 'View', '', '#')
 
-				h3.documents__header.col Equipment Invoices
-				p.documents__text Click the Invoice number to View the Invoice
+					h3.documents__header.col Equipment Invoices
+					p.documents__text Click the Invoice number to View the Invoice
 
-				table.table.table-striped.documents__table
-					thead
-						tr
-							th.fs-table(scope="col") Download Invoice
-							th.fs-table(scope="col") Invoice
-							th.fs-table(scope="col") Invoice Date
-							th.fs-table(scope="col") Vendor
-							th.fs-table(scope="col") Total Invoice
-					tbody
-						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
-						+trailersDocumentsTableRow(true, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
-						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
-						+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+					table.table.table-striped.documents__table
+						thead
+							tr
+								th.fs-table(scope="col") Download Invoice
+								th.fs-table(scope="col") Invoice
+								th.fs-table(scope="col") Invoice Date
+								th.fs-table(scope="col") Vendor
+								th.fs-table(scope="col") Total Invoice
+						tbody
+							+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+							+trailersDocumentsTableRow(true, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+							+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+							+trailersDocumentsTableRow(false, 'F11356', '7/25/2019', 'E&J Truck Service', '$1450')
+
+				.location__col.col-6.d-flex.justify-content-center
+					//- .documents__wrapper
+					.documents__container
+			
 
 		//- Tab content Location
 		div#Location-container.tab__content.offset-md-1.offset-xl-3

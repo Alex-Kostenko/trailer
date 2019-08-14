@@ -1,0 +1,17 @@
+extends partials/tab_layout
+
+
+block vars
+  - var isAdmin = true
+  - var title = "Trailer - Trailers Details"
+  - var navigation = "details-home"
+  - var sidebar_nav = "trailers"
+  - var optionsBussines = ['Bussines1', 'Bussines2', 'Bussines3']
+  - var optionsLocation = ['Location1', 'Location2', 'Location3']
+  - var optionsTrailerNumber = ['TrailerNumber-1', 'TrailerNumber-2', 'TrailerNumber-3']
+  - var optionsTrailerUnit = ['Unit-1', 'Unit-2', 'Unit-3']
+  - var optionsVendor = ['Vendor-1', 'Vendor-2', 'Vendor-3']
+  - var optionsCombo = ['Combo-1', 'Combo-2', 'Combo-3']
+
+block tab_content
+  h1 Trailers home

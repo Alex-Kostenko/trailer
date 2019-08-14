@@ -108,7 +108,7 @@ mixin trailersDocumentsRow(text1, text2)
 	.documents__row
 		.col-4.col-xl-3.text-left
 			span= text1
-		.col-4.col-xl-2.text-center
+		.col-4.col-xl-3.text-center
 			span= text2
 
 mixin trailersDocumentsRowWithButton(isAvailable, text1, text2, text3, link)
@@ -116,9 +116,10 @@ mixin trailersDocumentsRowWithButton(isAvailable, text1, text2, text3, link)
 		.documents__row
 			.col-4.col-xl-3.text-left
 				span= text1
-			.col-4.col-xl-2.text-center
+			.col-4.col-xl-3.text-center
 				a.main-link(href=link)= text2
-			.col-3.col-xl-2.text-center
+			//- .text-center
+			.col-xl-3
 				button.btn.main-btn= text3
 	else
 		.documents__row
@@ -126,8 +127,8 @@ mixin trailersDocumentsRowWithButton(isAvailable, text1, text2, text3, link)
 				span= text1
 			.col-4.col-xl-2.text-center
 				a.main-link(href=link)= text2
-			.col-3.col-xl-2.text-center
-				span Document Unavailable
+			//- .col-3.col-xl-2.text-center
+			span.col-4.col-xl-3 Document Unavailable
 
 mixin trailersDocumentsTableRow(isChecked, text1, text2, text3, link)
 	tr

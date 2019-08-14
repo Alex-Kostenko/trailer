@@ -7,3 +7,5 @@
 - remove DEV block in main.sass
 
 - Change All Buttons to .default-btn
+- Change Tabs to single page
+- refactor css

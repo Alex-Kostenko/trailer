@@ -4,6 +4,7 @@ import "./login.pug";
 import "./home.pug";
 import "./customer.pug";
 import "./trailers.pug";
+import "./trailers-home.pug";
 import "./home.pug";
 import "./support.pug";
 import "./create_account.pug";
@@ -41,6 +42,24 @@ import "./support_confirm.pug";
 
   document.addEventListener("DOMContentLoaded", function(event) {
     $('#datepicker-acquired').datepicker({
+      uiLibrary: 'bootstrap4'
+  })
+  });
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker_new-invoice').datepicker({
+      uiLibrary: 'bootstrap4'
+  })
+  });
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker_new-expiration').datepicker({
+      uiLibrary: 'bootstrap4'
+  })
+  });
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker_new-acquired').datepicker({
       uiLibrary: 'bootstrap4'
   })
   });
