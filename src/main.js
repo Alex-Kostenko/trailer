@@ -10,6 +10,7 @@ import "./create_account.pug";
 import "./account_info.pug";
 import "./support_confirm.pug";
 
+// Sidebar toggle listener
 (function() {
   var sidebarElement = document.getElementById("sidebar");
 
@@ -18,14 +19,34 @@ import "./support_confirm.pug";
   });
 })();
 
+// Datepicker listener
 (function() {
   document.addEventListener("DOMContentLoaded", function(event) {
     $('#datepicker').datepicker({
       uiLibrary: 'bootstrap4'
   })
+  });
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker-invoice').datepicker({
+      uiLibrary: 'bootstrap4'
   })
+  });
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker-expiration').datepicker({
+      uiLibrary: 'bootstrap4'
+  })
+  });
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#datepicker-acquired').datepicker({
+      uiLibrary: 'bootstrap4'
+  })
+  });
 })();
 
+// Charts
 (function() {
   document.addEventListener("DOMContentLoaded", function(event) {
     var totalLease = document.getElementById("TotalLease").getContext("2d");
@@ -157,6 +178,7 @@ import "./support_confirm.pug";
   });
 })();
 
+// Tab Links listener
 (function() {
   var tablinks = document.getElementsByClassName("tab__links");
   var tabcontents = document.getElementsByClassName("tab__content");
